@@ -8,13 +8,13 @@
 Enterprises need automation. The [typescript LLM framework](pocket/src/pocket.ts) capture what we see as the core abstraction of most LLM frameworks: A **Nested Directed Graph** that breaks down tasks into multiple (LLM) steps, with branching and recursion for agent-like decision-making.
 
 <p align="center">
-  <img src="./abstraction (1).png" width="700"/>
+  <img src=".assets/abstraction.png" width="700"/>
 </p>
 
 From there, it's easy to layer on more complex features like [Multi-Agents](https://helenaeverleyz.github.io/pocket/multi_agent/), [Agents](https://helenaeverleyz.github.io/pocket/agent/), [Prompt Chaining](https://the-pocket.github.io/PocketFlow/decomp.html), [RAG](https://helenaeverleyz.github.io/pocket/rag/), etc.
 
 <p align="center">
-  <img src="./paradigm (1).png" width="700"/>
+  <img src=".assets/paradigm.png" width="700"/>
 </p>
 
 ## ✨ Features
