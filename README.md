@@ -1,7 +1,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![Docs](https://img.shields.io/badge/docs-latest-blue)](https://helenaeverleyz.github.io/pocket/)
 
-# 🚀 Pocket
+# 🚀 Pocket Flow Framework
 > Build enterprise-ready AI systems—fast, modular, and vendor-agnostic.
 
 ## Why Pocket?
