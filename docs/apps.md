@@ -1,159 +1,184 @@
 ---
 layout: default
-title: "Apps"
+title: "Sample Applications"
 nav_order: 5
-has_children: true
 ---
 
-# Building Applications
+# Sample Applications
 
-This guide explains how to build applications using the Pocket Flow Framework's core components.
+Here are some example applications built with the Pocket Flow Framework to demonstrate its capabilities.
 
-## Core Components
+## 1. Document Processing Pipeline
 
-### 1. Basic Nodes (BaseNode)
-
-The fundamental building block of any Pocket Flow application is the `BaseNode`. Each node has three key lifecycle methods:
+A flow that processes documents through multiple stages:
 
 ```typescript
-abstract class BaseNode {
-    async prep(sharedState: any): Promise<any>;     // Prepare data for execution
-    async execCore(prepResult: any): Promise<any>;  // Core execution logic
-    async post(prepResult: any, execResult: any, sharedState: any): Promise<string>;  // Post-processing
-}
-```
+import { BaseNode, Flow, DEFAULT_ACTION } from "../src/pocket";
 
-Example implementation:
-```typescript
-class DataProcessingNode extends BaseNode {
+class DocumentLoaderNode extends BaseNode {
     async prep(sharedState: any) {
-        return sharedState.data;
+        return sharedState.documentPath;
     }
-    
-    async execCore(prepResult: any) {
-        return processData(prepResult);
+
+    async execCore(path: string) {
+        // Simulate loading document
+        return { content: "Sample document content" };
     }
-    
+
     async post(prepResult: any, execResult: any, sharedState: any) {
-        sharedState.processedData = execResult;
-        return "default";
+        sharedState.document = execResult;
+        return DEFAULT_ACTION;
     }
 }
-```
 
-### 2. Flows
-
-Flows orchestrate the execution of multiple nodes:
-
-```typescript
-const processNode = new DataProcessingNode();
-const validateNode = new ValidationNode();
-const modelNode = new ModelNode();
-
-// Chain nodes together
-processNode.addSuccessor(validateNode, "default");
-validateNode.addSuccessor(modelNode, "default");
-
-// Create and run the flow
-const flow = new Flow(processNode);
-await flow.run(sharedState);
-```
-
-### 3. Batch Processing
-
-For parallel processing, use `BatchFlow`:
-
-```typescript
-class DataBatchFlow extends BatchFlow {
+class TextExtractorNode extends BaseNode {
     async prep(sharedState: any) {
-        // Return array of items to process in parallel
-        return sharedState.items;
+        return sharedState.document;
     }
-    
-    async post(prepResults: any[], results: any[], sharedState: any) {
-        sharedState.processedItems = results;
-        return "default";
+
+    async execCore(document: any) {
+        return document.content.toLowerCase();
+    }
+
+    async post(prepResult: any, execResult: any, sharedState: any) {
+        sharedState.extractedText = execResult;
+        return DEFAULT_ACTION;
     }
 }
+
+// Create and connect nodes
+const loader = new DocumentLoaderNode();
+const extractor = new TextExtractorNode();
+loader.addSuccessor(extractor);
+
+// Create flow
+const docFlow = new Flow(loader);
+
+// Run the flow
+await docFlow.run({
+    documentPath: "path/to/document.pdf"
+});
 ```
 
-## Best Practices
+## 2. Data Processing with Retry Logic
 
-1. **State Management**
-   - Use `sharedState` for passing data between nodes
-   - Keep node-specific parameters in `flow_params`
+An example showing retry capabilities for API calls:
 
-2. **Error Handling**
-   - Implement `RetryNode` for operations that may fail
-   - Use try-catch blocks in node implementations
-
-3. **Flow Design**
-   - Break complex operations into smaller nodes
-   - Use meaningful action names for node transitions
-   - Consider using BatchFlow for parallel processing
-
-## Common Patterns
-
-### 1. Retry Pattern
 ```typescript
 class ApiNode extends RetryNode {
     constructor() {
         super(3, 1000); // 3 retries, 1 second interval
     }
-    
-    async execCore(prepResult: any) {
-        return await apiCall(prepResult);
+
+    async prep(sharedState: any) {
+        return sharedState.apiEndpoint;
+    }
+
+    async execCore(endpoint: string) {
+        // Simulate API call that might fail
+        const response = await fetch(endpoint);
+        if (!response.ok) throw new Error("API call failed");
+        return response.json();
+    }
+
+    async post(prepResult: any, execResult: any, sharedState: any) {
+        sharedState.apiResponse = execResult;
+        return DEFAULT_ACTION;
     }
 }
 ```
 
-### 2. Conditional Branching
+## 3. Parallel Processing with BatchFlow
+
+Example of processing multiple items in parallel:
+
+```typescript
+class ImageProcessingFlow extends BatchFlow {
+    async prep(sharedState: any) {
+        // Return array of image paths to process
+        return sharedState.imagePaths;
+    }
+
+    async post(prepResults: string[], results: any[], sharedState: any) {
+        sharedState.processedImages = results;
+        return DEFAULT_ACTION;
+    }
+}
+
+// Usage
+const batchFlow = new ImageProcessingFlow(processingNode);
+await batchFlow.run({
+    imagePaths: [
+        "image1.jpg",
+        "image2.jpg",
+        "image3.jpg"
+    ]
+});
+```
+
+## 4. Conditional Branching Flow
+
+Example of a flow with different paths based on conditions:
+
 ```typescript
 class ValidationNode extends BaseNode {
+    async prep(sharedState: any) {
+        return sharedState.data;
+    }
+
+    async execCore(data: any) {
+        return data.isValid;
+    }
+
     async post(prepResult: any, execResult: any, sharedState: any) {
-        return execResult.isValid ? "valid" : "invalid";
+        return execResult ? "valid" : "invalid";
     }
 }
 
-validationNode.addSuccessor(successNode, "valid");
-validationNode.addSuccessor(failureNode, "invalid");
+// Create nodes
+const validator = new ValidationNode();
+const successHandler = new SuccessNode();
+const errorHandler = new ErrorNode();
+
+// Set up branching
+validator.addSuccessor(successHandler, "valid");
+validator.addSuccessor(errorHandler, "invalid");
+
+// Create and run flow
+const flow = new Flow(validator);
+await flow.run({
+    data: { isValid: true }
+});
 ```
 
-### 3. Nested Flows
+## 5. Nested Flows Example
+
+Demonstrating how to compose complex workflows:
+
 ```typescript
-const subFlow = new Flow(startNode);
-const mainFlow = new Flow(preprocessNode);
-preprocessNode.addSuccessor(subFlow, "default");
+// Sub-flow for data preprocessing
+const preprocessFlow = new Flow(preprocessNode);
+preprocessFlow.addSuccessor(validationNode);
+
+// Sub-flow for model inference
+const inferenceFlow = new Flow(modelNode);
+inferenceFlow.addSuccessor(postprocessNode);
+
+// Main flow combining sub-flows
+preprocessFlow.addSuccessor(inferenceFlow);
+const mainFlow = new Flow(preprocessFlow);
+
+// Run the composed flow
+await mainFlow.run({
+    input: "Raw data"
+});
 ```
 
-## Advanced Usage
+These examples demonstrate key features of the framework:
+- Basic node implementation
+- Retry logic for robust operations
+- Parallel processing with BatchFlow
+- Conditional branching
+- Flow composition
 
-### Custom Flow Parameters
-```typescript
-class CustomNode extends BaseNode {
-    async prep(sharedState: any) {
-        const params = this.flow_params;
-        // Use custom parameters for this node
-        return processWithParams(sharedState, params);
-    }
-}
-
-const node = new CustomNode();
-node.setParams({ threshold: 0.5, mode: "fast" });
-```
-
-### Parallel Processing with BatchFlow
-```typescript
-class ParallelProcessFlow extends BatchFlow {
-    async prep(sharedState: any) {
-        return sharedState.data.chunks;
-    }
-    
-    async post(prepResults: any[], results: any[], sharedState: any) {
-        sharedState.results = results.flat();
-        return "default";
-    }
-}
-```
-
-See the child pages for detailed examples and specific use cases.
+Each example can be extended and customized based on specific requirements.
