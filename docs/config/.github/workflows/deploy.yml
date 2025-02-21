@@ -14,4 +14,4 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install mkdocs-terminal
-      - run: mkdocs gh-deploy --force 
+      - run: mkdocs gh-deploy --force --config-file docs/config/mkdocs.yml
