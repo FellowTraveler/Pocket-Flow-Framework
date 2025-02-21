@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Communication - Pocket Flow Framework</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">Pocket Flow Framework</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../guide/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Guide</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../apps/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Applications</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../guide/">Guide</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Core Concepts</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../core_abstraction/">Core Abstraction</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../flow/">Understanding Flows</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../decomp/">Task Decomposition</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Implementation</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../preparation/">Setup</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../apps/">Applications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#communication">Communication</a></li>
+        <li><a href="#1-shared-store">1. Shared Store</a></li><li><a href="#2-params">2. Params</a></li><li><a href="#3-shared-store-vs-params">3. Shared Store vs. Params</a></li><li><a href="#summary">Summary</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="communication">Communication</h1>
+<p>Nodes and Flows <strong>communicate</strong> in two ways:</p>
+<ol>
+<li><strong>Shared Store</strong> – A global data structure (often an in-memory object) that all nodes can read and write. Every Node's <code>prepAsync()</code> and <code>postAsync()</code> methods receive the <strong>same</strong> <code>shared</code> store.</li>
+<li><strong>Params</strong> – Each node and Flow has a unique <code>params</code> object assigned by the <strong>parent Flow</strong>, typically used as an identifier for tasks. It's strongly recommended to keep parameter keys and values <strong>immutable</strong>.</li>
+</ol>
+<p>If you understand memory management, think of the <strong>Shared Store</strong> like a <strong>heap</strong> (shared by all function calls), and <strong>Params</strong> like a <strong>stack</strong> (assigned by the caller).</p>
+<blockquote>
+<p><strong>Why not use other communication models like Message Passing?</strong> </p>
+<p>At a <em>low-level</em> between nodes, <em>Message Passing</em> works fine for simple DAGs, but in nested or cyclic Flows it becomes unwieldy. A shared store keeps things straightforward. </p>
+<p>That said, <em>high-level</em> multi-agent patterns like <em>Message Passing</em> and <em>Event-Driven Design</em> can still be layered on top via <em>Async Queues or Pub/Sub</em> in a shared store (see <a href="../multi_agent/">Multi-Agents</a>).
+{: .note }</p>
+</blockquote>
+<hr />
+<h2 id="1-shared-store">1. Shared Store</h2>
+<h3 id="overview">Overview</h3>
+<p>A shared store is typically an in-memory object, like:</p>
+<pre><code class="language-typescript">const shared = { data: {}, summary: {}, config: { /* ... */ } };
+</code></pre>
+<p>It can also contain local file handlers, database connections, or a combination for persistence. We recommend deciding the data structure or database schema first based on your application's requirements.</p>
+<h3 id="example">Example</h3>
+<pre><code class="language-typescript">import { BaseNode, Flow, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+
+// Placeholder for an asynchronous LLM call
+async function callLLM(prompt: string): Promise&lt;string&gt; {
+  // Example implementation
+  return &quot;This is a summary generated by the LLM.&quot;;
+}
+
+export class LoadDataNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Simulate reading data from an API or disk
+    sharedState.data[&quot;my_file.txt&quot;] = &quot;Some text content loaded asynchronously.&quot;;
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // No execution needed for loading data
+  }
+
+  public async postAsync(sharedState: any, _: void, __: void): Promise&lt;string&gt; {
+    return DEFAULT_ACTION;
+  }
+}
+
+export class SummarizeNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;string&gt; {
+    // Access data loaded by LoadDataNode
+    return sharedState.data[&quot;my_file.txt&quot;] || &quot;&quot;;
+  }
+
+  public async execAsync(content: string): Promise&lt;string&gt; {
+    const prompt = `Summarize the following content:\n${content}`;
+    return await callLLM(prompt);
+  }
+
+  public async postAsync(sharedState: any, _: string, execResult: string): Promise&lt;string&gt; {
+    sharedState.summary[&quot;my_file.txt&quot;] = execResult;
+    return &quot;default&quot;;
+  }
+}
+
+// Instantiate nodes
+const loadData = new LoadDataNode();
+const summarize = new SummarizeNode();
+
+// Define the flow
+loadData.addSuccessor(summarize, &quot;default&quot;);
+const flow = new Flow(loadData);
+
+// Initial shared state
+const shared = { data: {}, summary: {}, config: {} };
+
+// Run the flow
+flow.runAsync(shared).then(() =&gt; {
+  console.log(&quot;Summary:&quot;, shared.summary[&quot;my_file.txt&quot;]);
+}).catch(error =&gt; {
+  console.error(&quot;Flow execution failed:&quot;, error);
+});
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>LoadDataNode</strong>:</li>
+<li><strong>prepAsync()</strong>: Asynchronously loads data into the <code>sharedState.data</code> object.</li>
+<li><strong>execAsync()</strong>: No operation needed; data loading is handled in <code>prepAsync()</code>.</li>
+<li>
+<p><strong>postAsync()</strong>: Transitions to the next node by returning <code>DEFAULT_ACTION</code>.</p>
+</li>
+<li>
+<p><strong>SummarizeNode</strong>:</p>
+</li>
+<li><strong>prepAsync()</strong>: Retrieves the loaded data from <code>sharedState</code>.</li>
+<li><strong>execAsync()</strong>: Calls an asynchronous LLM function to summarize the content.</li>
+<li>
+<p><strong>postAsync()</strong>: Stores the summary in <code>sharedState.summary</code> and transitions to the next action.</p>
+</li>
+<li>
+<p><strong>Flow Execution</strong>:</p>
+</li>
+<li>The flow starts with <code>LoadDataNode</code>, which loads data.</li>
+<li>Upon completion, it transitions to <code>SummarizeNode</code> to process and summarize the data.</li>
+<li>After execution, the summary is available in <code>shared.summary["my_file.txt"]</code>.</li>
+</ul>
+<hr />
+<h2 id="2-params">2. Params</h2>
+<p><strong>Params</strong> allow you to store <em>per-Node</em> or <em>per-Flow</em> configuration that doesn't need to reside in the shared store. They are:</p>
+<ul>
+<li><strong>Immutable</strong> during a Node's run cycle (i.e., they don't change mid-<code>prepAsync</code>, <code>execAsync</code>, <code>postAsync</code>).</li>
+<li><strong>Set</strong> via <code>setParams()</code>.</li>
+<li><strong>Cleared</strong> and updated each time a parent Flow calls it.</li>
+</ul>
+<blockquote>
+<p>Only set the uppermost Flow params because others will be overwritten by the parent Flow. If you need to set child node params, see <a href="../batch/">Batch</a>.
+{: .warning }</p>
+</blockquote>
+<p>Typically, <strong>Params</strong> are identifiers (e.g., file name, page number). Use them to fetch the task you assigned or write to a specific part of the shared store.</p>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-typescript">import { BaseNode, Flow, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+
+// Placeholder for an asynchronous LLM call
+async function callLLM(prompt: string): Promise&lt;string&gt; {
+  // Example implementation
+  return `Summary for ${prompt}`;
+}
+
+export class SummarizeFileNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;string&gt; {
+    // Access the node's params
+    const filename = this.params[&quot;filename&quot;];
+    return sharedState.data[filename] || &quot;&quot;;
+  }
+
+  public async execAsync(content: string): Promise&lt;string&gt; {
+    const prompt = `Summarize the following content:\n${content}`;
+    return await callLLM(prompt);
+  }
+
+  public async postAsync(sharedState: any, _: string, execResult: string): Promise&lt;string&gt; {
+    const filename = this.params[&quot;filename&quot;];
+    sharedState.summary[filename] = execResult;
+    return DEFAULT_ACTION;
+  }
+}
+
+// Instantiate the node
+const summarizeFile = new SummarizeFileNode();
+
+// Set Node params directly (for testing)
+summarizeFile.setParams({ filename: &quot;doc1.txt&quot; });
+
+// Define the flow
+const flow = new Flow(summarizeFile);
+
+// Initial shared state
+const shared = { data: { &quot;doc1.txt&quot;: &quot;Content of document 1.&quot; }, summary: {} };
+
+// Run the flow
+flow.runAsync(shared).then(() =&gt; {
+  console.log(&quot;Summary:&quot;, shared.summary[&quot;doc1.txt&quot;]);
+}).catch(error =&gt; {
+  console.error(&quot;Flow execution failed:&quot;, error);
+});
+
+// Alternatively, set Flow params (overwrites node params)
+const flowWithParams = new Flow(summarizeFile);
+flowWithParams.setParams({ filename: &quot;doc2.txt&quot; });
+flowWithParams.runAsync({ data: { &quot;doc2.txt&quot;: &quot;Content of document 2.&quot; }, summary: {} }).then(() =&gt; {
+  console.log(&quot;Summary:&quot;, shared.summary[&quot;doc2.txt&quot;]);
+}).catch(error =&gt; {
+  console.error(&quot;Flow execution failed:&quot;, error);
+});
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ol>
+<li><strong>SummarizeFileNode</strong>:</li>
+<li><strong>prepAsync()</strong>: Retrieves the filename from <code>this.params</code> and fetches the corresponding data from <code>sharedState</code>.</li>
+<li><strong>execAsync()</strong>: Calls an asynchronous LLM function to summarize the content.</li>
+<li>
+<p><strong>postAsync()</strong>: Stores the summary in <code>sharedState.summary</code> using the filename as the key.</p>
+</li>
+<li>
+<p><strong>Flow Execution</strong>:</p>
+</li>
+<li><strong>Node Params</strong>: Directly setting params on the node (<code>doc1.txt</code>) and running the flow.</li>
+<li><strong>Flow Params</strong>: Setting params on the flow (<code>doc2.txt</code>), which overwrites the node's params, and running the flow.</li>
+</ol>
+<hr />
+<h2 id="3-shared-store-vs-params">3. Shared Store vs. Params</h2>
+<p>Think of the <strong>Shared Store</strong> like a heap and <strong>Params</strong> like a stack.</p>
+<ul>
+<li><strong>Shared Store</strong>:</li>
+<li><strong>Public, Global</strong>:<ul>
+<li>Accessible by all nodes within the flow.</li>
+</ul>
+</li>
+<li><strong>Pre-populated</strong>:<ul>
+<li>Can be initialized with data before the flow starts.</li>
+</ul>
+</li>
+<li><strong>Use Cases</strong>:<ul>
+<li>Data results, large content, or any information multiple nodes need.</li>
+</ul>
+</li>
+<li>
+<p><strong>Organization</strong>:</p>
+<ul>
+<li>Structure it carefully, similar to designing a mini schema for clarity and maintainability.</li>
+</ul>
+</li>
+<li>
+<p><strong>Params</strong>:</p>
+</li>
+<li><strong>Local, Ephemeral</strong>:<ul>
+<li>Specific to each node or flow instance.</li>
+</ul>
+</li>
+<li><strong>Set by Parent Flows</strong>:<ul>
+<li>Assigned by the flow managing the node.</li>
+</ul>
+</li>
+<li><strong>Use Cases</strong>:<ul>
+<li>Small values like filenames, page numbers, or identifiers.</li>
+</ul>
+</li>
+<li><strong>Characteristics</strong>:<ul>
+<li>Immutable during execution.</li>
+<li>Do not persist across different nodes and are reset with each new flow run.</li>
+</ul>
+</li>
+</ul>
+<h3 id="key-differences">Key Differences</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Shared Store</th>
+<th>Params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Global within the flow</td>
+<td>Local to the node or flow instance</td>
+</tr>
+<tr>
+<td><strong>Mutability</strong></td>
+<td>Mutable</td>
+<td>Immutable during execution</td>
+</tr>
+<tr>
+<td><strong>Initialization</strong></td>
+<td>Can be pre-populated</td>
+<td>Set dynamically by parent flows</td>
+</tr>
+<tr>
+<td><strong>Use Cases</strong></td>
+<td>Large data, results, shared info</td>
+<td>Identifiers, small configuration data</td>
+</tr>
+<tr>
+<td><strong>Persistence</strong></td>
+<td>Can include persistent connections</td>
+<td>Temporary and ephemeral</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>By converting your Python-based communication examples to TypeScript, you can take full advantage of TypeScript's strong typing and modern asynchronous features. The provided examples demonstrate how to implement <strong>Shared Store</strong> and <strong>Params</strong> mechanisms within your <code>pocket.ts</code> framework, ensuring efficient and organized inter-node communication.</p>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Shared Store</strong>:</li>
+<li>Facilitates global data sharing across nodes.</li>
+<li>Ideal for storing large datasets, results, and shared configurations.</li>
+<li>
+<p>Must be carefully structured to maintain clarity.</p>
+</li>
+<li>
+<p><strong>Params</strong>:</p>
+</li>
+<li>Enables passing specific identifiers or configuration data to individual nodes.</li>
+<li>Ensures immutability during node execution for consistency.</li>
+<li>Best suited for transient data like filenames or user inputs.</li>
+</ul>
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li><strong>Implement Actual Logic</strong>: Replace placeholder functions like <code>callLLM</code> with real implementations that interact with your services.</li>
+<li><strong>Enhance Error Handling</strong>: Incorporate comprehensive error checks and handling within your nodes to manage potential failures gracefully.</li>
+<li><strong>Optimize Data Structures</strong>: Design and standardize your shared store's data structures to suit various application needs.</li>
+<li><strong>Expand Documentation</strong>: Continue documenting other core abstractions and features of your framework to maintain consistency and clarity.</li>
+</ul>
+<p>Feel free to further customize these examples to fit your project's specific requirements. If you have any questions or need additional assistance, don't hesitate to ask!</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

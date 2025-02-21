@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Understanding Flows - Pocket Flow Framework</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">Pocket Flow Framework</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../guide/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Guide</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../apps/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Applications</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../guide/">Guide</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item--active terminal-mkdocs-side-nav-section-no-index">Core Concepts</span>
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../core_abstraction/">Core Abstraction</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        <span class="
+
+    terminal-mkdocs-side-nav-item--active">Understanding Flows</span>
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../decomp/">Task Decomposition</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Implementation</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../preparation/">Setup</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../apps/">Applications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#flow">Flow</a></li>
+        <li><a href="#1-action-based-transitions">1. Action-based Transitions</a></li><li><a href="#2-creating-a-flow">2. Creating a Flow</a></li><li><a href="#3-nested-flows">3. Nested Flows</a></li><li><a href="#summary">Summary</a></li><li><a href="#4-specialized-flows">4. Specialized Flows</a></li><li><a href="#summary_1">Summary</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="flow">Flow</h1>
+<p>A <strong>Flow</strong> orchestrates how Nodes connect and run, based on <strong>Actions</strong> returned from each Node's <code>postAsync()</code> method. You can chain Nodes in a sequence or create branching logic depending on the <strong>Action</strong> string.</p>
+<h2 id="1-action-based-transitions">1. Action-based Transitions</h2>
+<p>Each Node's <code>postAsync(shared, prepResult, execResult)</code> method returns an <strong>Action</strong> string. By default, if <code>postAsync()</code> doesn't explicitly return anything, we treat that as <code>"default"</code>.</p>
+<p>You define transitions with the syntax:</p>
+<ol>
+<li>
+<p><strong>Basic default transition:</strong> <code>nodeA &gt;&gt; nodeB</code><br />
+   This means if <code>nodeA.postAsync()</code> returns <code>"default"</code> (or <code>undefined</code>), proceed to <code>nodeB</code>.<br />
+<em>(Equivalent to <code>nodeA - "default" &gt;&gt; nodeB</code>)</em></p>
+</li>
+<li>
+<p><strong>Named action transition:</strong> <code>nodeA - "actionName" &gt;&gt; nodeB</code><br />
+   This means if <code>nodeA.postAsync()</code> returns <code>"actionName"</code>, proceed to <code>nodeB</code>.</p>
+</li>
+</ol>
+<p>It's possible to create loops, branching, or multi-step flows.</p>
+<h2 id="2-creating-a-flow">2. Creating a Flow</h2>
+<p>A <strong>Flow</strong> begins with a <strong>start</strong> node (or another Flow). You create it using <code>new Flow(startNode)</code> to specify the entry point. When you call <code>flow.runAsync(sharedState)</code>, it executes the first node, looks at its <code>postAsync()</code> return Action, follows the corresponding transition, and continues until there's no next node or you explicitly stop.</p>
+<h3 id="example-simple-sequence">Example: Simple Sequence</h3>
+<p>Here's a minimal flow of two nodes in a chain:</p>
+<pre><code class="language-typescript">import { BaseNode, Flow, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+
+// Define NodeA
+class NodeA extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Preparation logic for NodeA
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execution logic for NodeA
+  }
+
+  public async postAsync(sharedState: any, _: void, __: void): Promise&lt;string&gt; {
+    // Transition to NodeB
+    return &quot;default&quot;;
+  }
+}
+
+// Define NodeB
+class NodeB extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Preparation logic for NodeB
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execution logic for NodeB
+  }
+
+  public async postAsync(sharedState: any, _: void, __: void): Promise&lt;string&gt; {
+    // No further nodes to transition to
+    return DEFAULT_ACTION;
+  }
+}
+
+// Instantiate nodes
+const nodeA = new NodeA();
+const nodeB = new NodeB();
+
+// Define the flow connections
+nodeA.addSuccessor(nodeB, &quot;default&quot;);
+
+// Create the flow starting with nodeA
+const flow = new Flow(nodeA);
+
+// Initial shared state
+const sharedState = {};
+
+// Run the flow
+flow.runAsync(sharedState).then(() =&gt; {
+  console.log(&quot;Flow completed successfully.&quot;);
+}).catch(error =&gt; {
+  console.error(&quot;Flow execution failed:&quot;, error);
+});
+</code></pre>
+<ul>
+<li>When you run the flow, it executes <code>NodeA</code>.</li>
+<li>Suppose <code>NodeA.postAsync()</code> returns <code>"default"</code>.</li>
+<li>The flow then sees the <code>"default"</code> Action is linked to <code>NodeB</code> and runs <code>NodeB</code>.</li>
+<li>If <code>NodeB.postAsync()</code> returns <code>"default"</code> but we didn't define <code>NodeB &gt;&gt; somethingElse</code>, the flow ends there.</li>
+</ul>
+<h3 id="example-branching-looping">Example: Branching &amp; Looping</h3>
+<p>Here's a simple expense approval flow that demonstrates branching and looping. The <code>ReviewExpenseNode</code> can return three possible Actions:</p>
+<ul>
+<li><code>"approved"</code>: Expense is approved, move to payment processing.</li>
+<li><code>"needs_revision"</code>: Expense needs changes, send back for revision.</li>
+<li><code>"rejected"</code>: Expense is denied, finish the process.</li>
+</ul>
+<p>We can wire them like this:</p>
+<pre><code class="language-typescript">import { BaseNode, Flow, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+
+// Define ReviewExpenseNode
+class ReviewExpenseNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Prepare expense data
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execute review logic
+  }
+
+  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise&lt;string&gt; {
+    // Example decision logic
+    const decision = &quot;approved&quot;; // Replace with actual decision-making
+    return decision;
+  }
+}
+
+// Define PaymentNode
+class PaymentNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Prepare payment data
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execute payment processing
+  }
+
+  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise&lt;string&gt; {
+    return DEFAULT_ACTION;
+  }
+}
+
+// Define ReviseExpenseNode
+class ReviseExpenseNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Prepare revision data
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execute revision logic
+  }
+
+  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise&lt;string&gt; {
+    return &quot;needs_revision&quot;;
+  }
+}
+
+// Define FinishNode
+class FinishNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Prepare finish data
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execute finish logic
+  }
+
+  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise&lt;string&gt; {
+    return DEFAULT_ACTION;
+  }
+}
+
+// Instantiate nodes
+const reviewExpense = new ReviewExpenseNode();
+const payment = new PaymentNode();
+const reviseExpense = new ReviseExpenseNode();
+const finish = new FinishNode();
+
+// Define the flow connections
+reviewExpense.addSuccessor(payment, &quot;approved&quot;);
+reviewExpense.addSuccessor(reviseExpense, &quot;needs_revision&quot;);
+reviewExpense.addSuccessor(finish, &quot;rejected&quot;);
+
+reviseExpense.addSuccessor(reviewExpense, &quot;needs_revision&quot;); // Loop back for revision
+payment.addSuccessor(finish, &quot;default&quot;); // Proceed to finish after payment
+
+// Create the flow starting with reviewExpense
+const expenseFlow = new Flow(reviewExpense);
+
+// Initial shared state
+const sharedState = {};
+
+// Run the flow
+expenseFlow.runAsync(sharedState).then(() =&gt; {
+  console.log(&quot;Expense flow completed successfully.&quot;);
+}).catch(error =&gt; {
+  console.error(&quot;Expense flow execution failed:&quot;, error);
+});
+</code></pre>
+<h3 id="flow-diagram">Flow Diagram</h3>
+<pre><code class="language-mermaid">flowchart TD
+    reviewExpense[Review Expense] --&gt;|approved| payment[Process Payment]
+    reviewExpense --&gt;|needs_revision| reviseExpense[Revise Report]
+    reviewExpense --&gt;|rejected| finish[Finish Process]
+
+    reviseExpense --&gt; reviewExpense
+    payment --&gt; finish
+</code></pre>
+<h3 id="running-individual-nodes-vs-running-a-flow">Running Individual Nodes vs. Running a Flow</h3>
+<ul>
+<li>
+<p><strong><code>node.runAsync(sharedState)</code></strong>:<br />
+  Just runs that node alone (calls <code>prepAsync()</code>, <code>execAsync()</code>, <code>postAsync()</code>), and returns an Action.<br />
+<em>Use this for debugging or testing a single node.</em></p>
+</li>
+<li>
+<p><strong><code>flow.runAsync(sharedState)</code></strong>:<br />
+  Executes from the start node, follows Actions to the next node, and so on until the flow can't continue (no next node or no next Action).<br />
+<em>Use this in production to ensure the full pipeline runs correctly.</em></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Warning:</strong><br />
+<code>node.runAsync(sharedState)</code> <strong>does not</strong> proceed automatically to the successor and may use incorrect parameters.<br />
+Always use <code>flow.runAsync(sharedState)</code> in production.</p>
+</blockquote>
+<h2 id="3-nested-flows">3. Nested Flows</h2>
+<p>A <strong>Flow</strong> can act like a Node, enabling powerful composition patterns:</p>
+<pre><code class="language-typescript">// Define sub-flow nodes
+const nodeA = new NodeA();
+const nodeB = new NodeB();
+nodeA.addSuccessor(nodeB);
+
+// Create sub-flow
+const subFlow = new Flow(nodeA);
+
+// Connect sub-flow to another node
+const nodeC = new NodeC();
+subFlow.addSuccessor(nodeC);
+
+// Create parent flow
+const parentFlow = new Flow(subFlow);
+</code></pre>
+<p>When <code>parentFlow.run(sharedState)</code> executes:
+1. It starts the <code>subFlow</code>
+2. <code>subFlow</code> runs through its nodes (<code>NodeA</code> then <code>NodeB</code>)
+3. After <code>subFlow</code> completes, execution continues to <code>NodeC</code></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Flow:</strong> Orchestrates Node execution based on Actions</li>
+<li><strong>Action-based Transitions:</strong> Define Node connections using <code>addSuccessor()</code></li>
+<li><strong>Nested Flows:</strong> Flows can be used as Nodes within other Flows</li>
+</ul>
+<p>Remember to handle errors appropriately and test your implementations thoroughly.</p>
+<h2 id="4-specialized-flows">4. Specialized Flows</h2>
+<p>In addition to the basic <code>Flow</code>, your framework supports specialized flows like <code>AsyncFlow</code>, <code>BatchFlow</code>, and more, allowing for complex orchestration patterns. These specialized flows can handle asynchronous operations, batch processing, and other advanced scenarios seamlessly within your application.</p>
+<h3 id="example-nested-flows-in-order-processing">Example: Nested Flows in Order Processing</h3>
+<p>Continuing from the previous order processing example, suppose you want to add another layer of processing, such as logging and notification. You can create additional sub-flows or combine existing ones.</p>
+<pre><code class="language-typescript">import { BaseNode, Flow, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+
+// Define LoggingNode
+class LoggingNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Prepare logging data
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execute logging logic
+  }
+
+  public async postAsync(sharedState: any, _, __: void): Promise&lt;string&gt; {
+    console.log(`Order ${sharedState.orderId} processed for ${sharedState.customer}`);
+    return DEFAULT_ACTION;
+  }
+}
+
+// Define NotificationNode
+class NotificationNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;void&gt; {
+    // Prepare notification data
+  }
+
+  public async execAsync(_: void): Promise&lt;void&gt; {
+    // Execute notification logic
+  }
+
+  public async postAsync(sharedState: any, _, __: void): Promise&lt;string&gt; {
+    // Send notification
+    return DEFAULT_ACTION;
+  }
+}
+
+// Instantiate logging and notification nodes
+const loggingNode = new LoggingNode();
+const notificationNode = new NotificationNode();
+
+// Connect shippingFlow to logging and notification
+shippingFlow.addSuccessor(loggingNode, &quot;default&quot;);
+loggingNode.addSuccessor(notificationNode, &quot;default&quot;);
+
+// Update the master flow to include logging and notification
+orderProcessingFlow.addSuccessor(loggingNode, &quot;default&quot;);
+loggingNode.addSuccessor(notificationNode, &quot;default&quot;);
+
+// Run the updated flow
+orderProcessingFlow.runAsync(sharedState).then(() =&gt; {
+  console.log(&quot;Order processing with logging and notification completed successfully.&quot;);
+}).catch(error =&gt; {
+  console.error(&quot;Order processing failed:&quot;, error);
+});
+</code></pre>
+<h3 id="flow-diagram-with-nested-flows">Flow Diagram with Nested Flows</h3>
+<pre><code class="language-mermaid">flowchart LR
+    subgraph orderProcessingFlow[&quot;Order Processing Flow&quot;]
+        subgraph paymentFlow[&quot;Payment Flow&quot;]
+            A[Validate Payment] --&gt;|process_payment| B[Process Payment]
+            B --&gt;|payment_confirmation| C[Payment Confirmation]
+            A --&gt;|reject_payment| D[Handle Rejection]
+        end
+
+        subgraph inventoryFlow[&quot;Inventory Flow&quot;]
+            E[Check Stock] --&gt;|reserve_items| F[Reserve Items]
+            F --&gt;|update_inventory| G[Update Inventory]
+            E --&gt;|out_of_stock| H[Handle Out of Stock]
+        end
+
+        subgraph shippingFlow[&quot;Shipping Flow&quot;]
+            I[Create Label] --&gt;|assign_carrier| J[Assign Carrier]
+            J --&gt;|schedule_pickup| K[Schedule Pickup]
+        end
+
+        subgraph loggingFlow[&quot;Logging &amp; Notification Flow&quot;]
+            L[Logging] --&gt;|default| M[Notification]
+        end
+
+        paymentFlow --&gt; inventoryFlow
+        inventoryFlow --&gt; shippingFlow
+        shippingFlow --&gt; loggingFlow
+    end
+</code></pre>
+<h1 id="summary_1">Summary</h1>
+<p>By converting your Python-based Flow examples to TypeScript, you can leverage TypeScript's strong typing and modern asynchronous features. The provided examples demonstrate how to implement <strong>Flows</strong>, handle <strong>Action-based Transitions</strong>, and manage <strong>Nested Flows</strong> within your <code>pocket.ts</code> framework, ensuring efficient and organized workflow orchestration.</p>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>
+<p><strong>Flow:</strong><br />
+  Orchestrates the execution of Nodes based on Actions returned by each node's <code>postAsync()</code> method.</p>
+</li>
+<li>
+<p><strong>Action-based Transitions:</strong><br />
+  Define how Nodes transition to one another based on specific Action strings.</p>
+</li>
+<li>
+<p><strong>Nested Flows:</strong><br />
+  Allows flows to act as Nodes within other flows, enabling complex and reusable workflow patterns.</p>
+</li>
+<li>
+<p><strong>Running Flows:</strong><br />
+  Use <code>flow.runAsync(sharedState)</code> to execute the entire pipeline, ensuring all transitions and nodes are processed correctly.</p>
+</li>
+</ul>
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li><strong>Implement Actual Logic:</strong><br />
+  Replace placeholder functions like <code>callLLM</code></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

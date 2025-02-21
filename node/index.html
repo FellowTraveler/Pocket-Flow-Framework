@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Node - Pocket Flow Framework</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">Pocket Flow Framework</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../guide/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Guide</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../apps/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Applications</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../guide/">Guide</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Core Concepts</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../core_abstraction/">Core Abstraction</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../flow/">Understanding Flows</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../decomp/">Task Decomposition</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Implementation</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../preparation/">Setup</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../apps/">Applications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#node">Node</a></li>
+        <li><a href="#fault-tolerance-retries">Fault Tolerance &amp; Retries</a></li><li><a href="#graceful-fallback">Graceful Fallback</a></li><li><a href="#example-summarize-a-file">Example: Summarize a File</a></li><li><a href="#summary">Summary</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="node">Node</h1>
+<p>A <strong>Node</strong> is the smallest building block. Each Node (in TypeScript, commonly extending <code>BaseNode</code>) has three main <strong>method overrides</strong> (all optional):</p>
+<ol>
+<li><code>prepAsync(sharedState)</code>  </li>
+<li>A reliable step for <strong>preprocessing</strong> data from the <code>sharedState</code>.  </li>
+<li>Examples: <em>query a DB, read files, or serialize data into a string</em>.  </li>
+<li>
+<p>Returns <code>prepResult</code>, which is passed to <code>execAsync()</code> and <code>postAsync()</code>.</p>
+</li>
+<li>
+<p><code>execAsync(prepResult)</code>  </p>
+</li>
+<li>The <strong>main execution</strong> step, with optional retries and error handling configured in the node's options.  </li>
+<li>Examples: <em>primarily for LLM calls, but can also be used for remote APIs</em>.  </li>
+<li><strong>Note</strong>: If retries are enabled, ensure an <strong>idempotent</strong> implementation.  </li>
+<li><strong>Important</strong>: This method should <strong>not</strong> write to <code>sharedState</code>. If you need data from <code>sharedState</code>, gather it in <code>prepAsync()</code> and pass it along as <code>prepResult</code>.  </li>
+<li>
+<p>Returns <code>execResult</code>, which is passed to <code>postAsync()</code>.</p>
+</li>
+<li>
+<p><code>postAsync(sharedState, prepResult, execResult)</code>  </p>
+</li>
+<li>A reliable postprocessing step to <strong>write results</strong> back to the <code>sharedState</code> and decide the next Action.  </li>
+<li>Examples: <em>update DB, change states, log results, decide next Action</em>.  </li>
+<li>Returns a <strong>string</strong> specifying the next Action (e.g. <code>"default"</code> if none is specified).</li>
+</ol>
+<blockquote>
+<p>Not all Nodes need all three steps. You could implement only <code>prepAsync()</code> if you just need to prepare data without calling an LLM.<br />
+{: .note }</p>
+</blockquote>
+<hr />
+<h2 id="fault-tolerance-retries">Fault Tolerance &amp; Retries</h2>
+<p>Nodes can <strong>retry</strong> <code>execAsync()</code> if it throws an exception. You configure this by passing options (e.g., <code>maxRetries</code>, <code>wait</code>) to the constructor (or use a property). For instance:</p>
+<pre><code class="language-typescript">const myNode = new SummarizeFile({ maxRetries: 3, wait: 10 });
+</code></pre>
+<p>This means:
+- <code>maxRetries = 3</code>: Up to 3 attempts total.<br />
+- <code>wait = 10</code>: Wait 10 seconds before each retry.  </p>
+<p>When an exception occurs in <code>execAsync()</code>, the Node automatically retries until:
+- It either succeeds, or<br />
+- The Node has retried <code>maxRetries - 1</code> times already and fails on the last attempt.</p>
+<hr />
+<h2 id="graceful-fallback">Graceful Fallback</h2>
+<p>If you want to handle errors gracefully instead of throwing, override:</p>
+<pre><code class="language-typescript">public async execFallbackAsync(
+  sharedState: any,
+  prepResult: any,
+  error: Error
+): Promise&lt;any&gt; {
+  throw error; // Default just rethrows
+}
+</code></pre>
+<p>By default, it rethrows the exception. But you can return a fallback result instead, which becomes the <code>execResult</code> passed to <code>postAsync()</code>.</p>
+<hr />
+<h2 id="example-summarize-a-file">Example: Summarize a File</h2>
+<p>Below is a Node that reads file content from <code>sharedState</code>, calls an LLM to summarize it, and saves the result back:</p>
+<pre><code class="language-typescript">import { BaseNode, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+import { callLLM } from &quot;../path/to/your/llm-wrapper&quot;;
+
+export class SummarizeFile extends BaseNode {
+  // constructor to accept node config (like maxRetries)
+  constructor(private config?: { maxRetries?: number; wait?: number }) {
+    super(config);
+  }
+
+  // prepAsync: read data from sharedState
+  public async prepAsync(sharedState: any): Promise&lt;string&gt; {
+    const filename = this.params[&quot;filename&quot;] as string;
+    const fileContent = sharedState.data?.[filename];
+    return fileContent ?? &quot;&quot;;
+  }
+
+  // execAsync: make the LLM call with the prepared file content
+  public async execAsync(fileContent: string): Promise&lt;string&gt; {
+    if (!fileContent) {
+      throw new Error(&quot;Empty file content!&quot;);
+    }
+    const prompt = `Summarize this text in ~10 words:\n${fileContent}`;
+    const summary = await callLLM(prompt); // might fail
+    return summary;
+  }
+
+  // execFallbackAsync: provide a default summary if there's an error
+  public async execFallbackAsync(
+    sharedState: any,
+    prepResult: string,
+    err: Error
+  ): Promise&lt;string&gt; {
+    console.error(&quot;LLM call failed:&quot;, err);
+    return &quot;There was an error processing your request.&quot;;
+  }
+
+  // postAsync: store the result in sharedState and return &quot;default&quot;
+  public async postAsync(sharedState: any, prepResult: string, execResult: string): Promise&lt;string&gt; {
+    const filename = this.params[&quot;filename&quot;] as string;
+    if (!sharedState.summary) {
+      sharedState.summary = {};
+    }
+    sharedState.summary[filename] = execResult;
+    return DEFAULT_ACTION; // or just &quot;default&quot;
+  }
+}
+
+// Example usage:
+const summarizeNode = new SummarizeFile({ maxRetries: 3, wait: 10 });
+summarizeNode.setParams({ filename: &quot;test_file.txt&quot; });
+
+// Prepare a shared state with data
+const shared: any = {
+  data: {
+    &quot;test_file.txt&quot;: &quot;Once upon a time in a faraway land...&quot;,
+  },
+};
+
+// node.runAsync(...) calls prepAsync-&gt;execAsync-&gt;postAsync
+// If execAsync() fails repeatedly, it calls execFallbackAsync() before postAsync().
+summarizeNode.runAsync(shared).then((actionReturned) =&gt; {
+  console.log(&quot;Action returned:&quot;, actionReturned);  // Usually &quot;default&quot;
+  console.log(&quot;Summary stored:&quot;, shared.summary?.[&quot;test_file.txt&quot;]);
+}).catch((error) =&gt; {
+  console.error(&quot;Node execution error:&quot;, error);
+});
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ol>
+<li><strong>prepAsync(sharedState)</strong> grabs the file content from <code>sharedState.data[filename]</code>.  </li>
+<li><strong>execAsync(prepResult)</strong> calls an LLM to summarize the text.  </li>
+<li>Any error triggers <strong>retry</strong> logic. If all retries fail, <strong>execFallbackAsync()</strong> is called, returning a fallback value.  </li>
+<li>Finally, <strong>postAsync(sharedState, prepResult, execResult)</strong> writes the summary to <code>sharedState.summary</code> and returns <code>"default"</code> so the flow can continue.</li>
+</ol>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>In your <code>pocket.ts</code> framework, each Node inherits from <code>BaseNode</code> and may implement:</p>
+<ul>
+<li><strong>prepAsync()</strong>: Gather/parse data from <code>sharedState</code>.  </li>
+<li><strong>execAsync()</strong> (with optional retry logic): Execute the main logic, frequently an LLM call.  </li>
+<li><strong>execFallbackAsync()</strong>: Provide a fallback result if <code>execAsync()</code> fails too many times.  </li>
+<li><strong>postAsync()</strong>: Write results back to <code>sharedState</code>, decide next <code>Action</code>.</li>
+</ul>
+<p>This approach keeps your code organized while ensuring reliability, retryability, and a clear separation of concerns.  </p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

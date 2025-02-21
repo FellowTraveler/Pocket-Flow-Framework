@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Structured Output - Pocket Flow Framework</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">Pocket Flow Framework</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../guide/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Guide</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../apps/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Applications</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../guide/">Guide</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Core Concepts</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../core_abstraction/">Core Abstraction</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../flow/">Understanding Flows</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../decomp/">Task Decomposition</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Implementation</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../preparation/">Setup</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../apps/">Applications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#structured-output">Structured Output</a></li>
+        <li><a href="#example-use-cases">Example Use Cases</a></li><li><a href="#prompt-engineering">Prompt Engineering</a></li><li><a href="#summary">Summary</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="structured-output">Structured Output</h1>
+<p>In many use cases, you may want the LLM to output a specific structure, such as a list or a dictionary with predefined keys.</p>
+<p>Common approaches include:</p>
+<ul>
+<li><strong>Prompting</strong> the LLM to strictly return a defined structure (often sufficient for modern LLMs).  </li>
+<li>Using LLMs or libraries that provide <strong>schema enforcement</strong> (e.g., OpenAI function calling, JSON schema validators).  </li>
+<li><strong>Post-processing</strong> the LLM's response to extract structured content.</li>
+</ul>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<ul>
+<li><strong>Extracting Key Information</strong></li>
+</ul>
+<pre><code class="language-yaml">product:
+  name: Widget Pro
+  price: 199.99
+  description: |
+    A high-quality widget designed for professionals.
+    Suitable for advanced users.
+</code></pre>
+<ul>
+<li><strong>Summarizing Documents into Bullet Points</strong></li>
+</ul>
+<pre><code class="language-yaml">summary:
+  - This product is easy to use.
+  - It is cost-effective.
+  - Suitable for novices and experts alike.
+</code></pre>
+<ul>
+<li><strong>Generating Configuration Files</strong></li>
+</ul>
+<pre><code class="language-yaml">server:
+  host: 127.0.0.1
+  port: 8080
+  ssl: true
+</code></pre>
+<h2 id="prompt-engineering">Prompt Engineering</h2>
+<p>When prompting an LLM for <strong>structured</strong> output:</p>
+<ol>
+<li><strong>Wrap</strong> the structure in code fences (e.g., ```yaml).  </li>
+<li><strong>Validate</strong> that all required fields exist, and if absent or ill-formed, handle retries or cleanup in your Node logic.</li>
+</ol>
+<h3 id="example-summarizing-text-in-yaml">Example: Summarizing Text in <em>YAML</em></h3>
+<p>Below is a <strong>TypeScript</strong> Node (<code>BaseNode</code>) demonstrating how to prompt an LLM for a YAML-based summary. It prompts for exactly 3 bullet points and then parses the LLM's response as YAML.</p>
+<pre><code class="language-typescript">import { BaseNode, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+import { callLLM } from &quot;../path/to/your/llm-wrapper&quot;;
+
+/**
+ * SummarizeNode:
+ * 1) Prepares a prompt with instructions for YAML output.
+ * 2) Calls the LLM to generate the structured YAML.
+ * 3) Parses the YAML and validates the result.
+ */
+export class SummarizeNode extends BaseNode {
+  public async prepAsync(sharedState: any): Promise&lt;string&gt; {
+    // Grab the text to summarize
+    const textToSummarize: string = sharedState.text ?? &quot;No text provided.&quot;;
+    return textToSummarize;
+  }
+
+  public async execAsync(text: string): Promise&lt;string&gt; {
+    // Construct a prompt that instructs the LLM to return exactly 3 bullet points in YAML
+    const prompt = `
+Please summarize the following text in YAML with exactly 3 bullet points.
+
+Text:
+${text}
+
+The YAML should look like this:
+
+\`\`\`yaml
+summary:
+  - bullet 1
+  - bullet 2
+  - bullet 3
+\`\`\`
+
+Only return the YAML (including the fences).
+`;
+    // Call the LLM with your custom logic
+    const response = await callLLM(prompt);
+    return response;
+  }
+
+  public async postAsync(
+    sharedState: any,
+    prepResult: string,
+    llmResponse: string
+  ): Promise&lt;string&gt; {
+    // Extract the YAML content between the fences
+    let yamlStr = &quot;&quot;;
+    try {
+      const startTag = &quot;```yaml&quot;;
+      const endTag = &quot;```&quot;;
+
+      const startIndex = llmResponse.indexOf(startTag);
+      const endIndex = llmResponse.indexOf(endTag, startIndex + startTag.length);
+
+      if (startIndex !== -1 &amp;&amp; endIndex !== -1) {
+        yamlStr = llmResponse.substring(startIndex + startTag.length, endIndex).trim();
+      } else {
+        throw new Error(&quot;LLM response did not contain valid ```yaml``` fences.&quot;);
+      }
+
+      // Parse the YAML
+      // (You might need &quot;js-yaml&quot; or similar library for safe YAML parsing.)
+      const yaml = await import(&quot;js-yaml&quot;);
+      const structResult = yaml.load(yamlStr);
+
+      // Validate the structure
+      if (!structResult || typeof structResult !== &quot;object&quot;) {
+        throw new Error(&quot;Parsed result is not a valid YAML object.&quot;);
+      }
+      if (!(&quot;summary&quot; in structResult) || !Array.isArray((structResult as any).summary)) {
+        throw new Error(&quot;Expected a 'summary' array in the YAML output.&quot;);
+      }
+
+      // Save the structured output
+      sharedState.summary = structResult;
+    } catch (err) {
+      // Optionally retry or provide fallback. For now, just log and store an error.
+      console.error(&quot;Error parsing YAML from LLM:&quot;, err);
+      sharedState.summary = { error: &quot;Invalid YAML output from LLM.&quot; };
+    }
+
+    return DEFAULT_ACTION; // Continue the flow
+  }
+}
+</code></pre>
+<p><strong>How It Works</strong>:<br />
+1. <strong>prepAsync</strong> fetches the text from <code>sharedState</code>.<br />
+2. <strong>execAsync</strong> sends a strict YAML-form request to the LLM.<br />
+3. <strong>postAsync</strong> parses and validates the result. If invalid, you can handle it (e.g., retry or fallback).</p>
+<h3 id="why-yaml-instead-of-json">Why YAML instead of JSON?</h3>
+<p>YAML tends to be more <strong>LLM-friendly</strong> for multiline strings. In JSON, you often need to carefully escape quotes or newline characters. For example, a multi-line string in JSON has to store newlines as <code>\n</code> and use escaped quotes like <code>\"</code>. With YAML, you can use the <code>|</code> block literal style to naturally preserve newlines and quotes.</p>
+<p><strong>In JSON</strong>  </p>
+<pre><code class="language-json">{
+  &quot;dialogue&quot;: &quot;Alice said: \&quot;Hello Bob.\\nHow are you?\\nI am good.\&quot;&quot;
+}
+</code></pre>
+<p><strong>In YAML</strong>  </p>
+<pre><code class="language-yaml">dialogue: |
+  Alice said: &quot;Hello Bob.
+  How are you?
+  I am good.&quot;
+</code></pre>
+<p>No special escaping needed.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Structured Outputs</strong> can make LLM calls more controllable and predictable.  </li>
+<li><strong>Prompt carefully</strong>: specify the desired structure and syntax (e.g., YAML code fence).  </li>
+<li><strong>Parse and validate</strong> the returned structure. If the LLM fails to comply, you can retry or use an alternative fallback.  </li>
+</ul>
+<p>With <code>pocket.ts</code>, you can integrate these steps into a Node-based flow, ensuring that each node is responsible for prompting, parsing, and validating data.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

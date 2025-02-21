@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Setup - Pocket Flow Framework</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">Pocket Flow Framework</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../guide/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Guide</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../apps/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Applications</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../guide/">Guide</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Core Concepts</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../core_abstraction/">Core Abstraction</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../flow/">Understanding Flows</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../decomp/">Task Decomposition</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item--active terminal-mkdocs-side-nav-section-no-index">Implementation</span>
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        <span class="
+
+    terminal-mkdocs-side-nav-item--active">Setup</span>
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../apps/">Applications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#implementation-details">Implementation Details</a></li>
+        <li><a href="#core-components">Core Components</a></li><li><a href="#best-practices">Best Practices</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="implementation-details">Implementation Details</h1>
+<p>This section covers important implementation details for working with the Pocket Flow Framework.</p>
+<h2 id="core-components">Core Components</h2>
+<h3 id="1-basenode">1. BaseNode</h3>
+<p>The <code>BaseNode</code> class is the foundation of the framework. Every node must implement these key methods:</p>
+<pre><code class="language-typescript">abstract class BaseNode {
+    // Prepare data for execution
+    abstract prep(sharedState: any): Promise&lt;any&gt;;
+
+    // Core execution logic
+    abstract execCore(prepResult: any): Promise&lt;any&gt;;
+
+    // Post-processing and determine next action
+    abstract post(prepResult: any, execResult: any, sharedState: any): Promise&lt;string&gt;;
+
+    // Required for cloning in parallel execution
+    abstract _clone(): BaseNode;
+}
+</code></pre>
+<h3 id="2-flow-parameters">2. Flow Parameters</h3>
+<p>Each node can maintain its own parameters:</p>
+<pre><code class="language-typescript">class BaseNode {
+    public flow_params: any;
+
+    public setParams(params: any): void {
+        this.flow_params = params;
+    }
+}
+</code></pre>
+<h3 id="3-node-transitions">3. Node Transitions</h3>
+<p>Nodes connect through action-based transitions:</p>
+<pre><code class="language-typescript">class BaseNode {
+    public successors: Map&lt;string, BaseNode&gt;;
+
+    public addSuccessor(newSuccessor: BaseNode, action: string = &quot;default&quot;): void {
+        if (this.successors.has(action)) {
+            throw new Error(`Action ${action} already exists`);
+        }
+        this.successors.set(action, newSuccessor);
+    }
+
+    public getSuccessor(name: string): BaseNode | undefined {
+        if (!this.successors.has(name)) {
+            return undefined;
+        }
+        return this.successors.get(name)!.clone();
+    }
+}
+</code></pre>
+<h3 id="4-execution-wrapper">4. Execution Wrapper</h3>
+<p>The framework supports custom execution wrappers for additional functionality:</p>
+<pre><code class="language-typescript">class BaseNode {
+    public execWrapper(prepResult: any): Promise&lt;any&gt; {
+        return this.execCore(prepResult);
+    }
+}
+
+// Example: RetryNode implementation
+abstract class RetryNode extends BaseNode {
+    constructor(maxRetries: number, intervalMs: number) {
+        super();
+        this.maxRetries = maxRetries;
+        this.intervalMs = intervalMs;
+    }
+
+    public async execWrapper(prepResult: any): Promise&lt;any&gt; {
+        for (let i = 0; i &lt; this.maxRetries; i++) {
+            try {
+                return await this.execCore(prepResult);
+            } catch (error) {
+                await new Promise(resolve =&gt; setTimeout(resolve, this.intervalMs));
+            }
+        }
+        throw new Error(&quot;Max retries reached after &quot; + this.maxRetries + &quot; attempts&quot;);
+    }
+}
+</code></pre>
+<h3 id="5-flow-orchestration">5. Flow Orchestration</h3>
+<p>The <code>Flow</code> class manages node execution:</p>
+<pre><code class="language-typescript">class Flow extends BaseNode {
+    private start: BaseNode;
+
+    async orchestrate(sharedState: any, flowParams?: any): Promise&lt;any&gt; {
+        let currentNode: BaseNode | undefined = await this.getStartNode();
+        while (currentNode) {
+            currentNode.setParams((flowParams) ? flowParams : this.flow_params);
+            const action = await currentNode.run(sharedState);
+            currentNode = currentNode.getSuccessor(action);
+        }
+    }
+}
+</code></pre>
+<h3 id="6-parallel-processing">6. Parallel Processing</h3>
+<p><code>BatchFlow</code> enables parallel execution:</p>
+<pre><code class="language-typescript">class BatchFlow extends Flow {
+    async run(sharedState: any): Promise&lt;string&gt; {
+        const prepResultList = await this.prep(sharedState);
+        const resultPromises = [];
+
+        for (const prepResult of prepResultList) {
+            const result = this.orchestrate(sharedState, prepResult);
+            resultPromises.push(result);
+        }
+
+        const resultList = await Promise.all(resultPromises);
+        return this.post(prepResultList, resultList, sharedState);
+    }
+}
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Clone Implementation</strong></li>
+<li>Always implement <code>_clone()</code> for your custom nodes</li>
+<li>Use deep cloning for mutable state</li>
+<li>
+<p>Ensure thread safety in parallel execution</p>
+</li>
+<li>
+<p><strong>Error Handling</strong></p>
+</li>
+<li>Use <code>RetryNode</code> for unreliable operations</li>
+<li>Implement appropriate error actions in <code>post()</code></li>
+<li>
+<p>Handle errors at the flow level</p>
+</li>
+<li>
+<p><strong>State Management</strong></p>
+</li>
+<li>Use <code>flow_params</code> for node-specific configuration</li>
+<li>Use <code>sharedState</code> for cross-node data sharing</li>
+<li>
+<p>Clone objects when needed to prevent mutation issues</p>
+</li>
+<li>
+<p><strong>Flow Design</strong></p>
+</li>
+<li>Keep nodes focused on single responsibilities</li>
+<li>Use meaningful action names</li>
+<li>Consider parallel processing opportunities</li>
+</ol>
+<p>See the child pages for specific implementation examples and patterns.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

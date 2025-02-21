@@ -1,52 +1,17 @@
 site_name: Pocket Flow Framework
-
 theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-  palette:
-    scheme: light
-  font:
-    text: "Helvetica Neue, Helvetica, Arial, sans-serif"
-    code: "Menlo, Monaco, Courier New, monospace"
-
-docs_dir: docs
+  name: terminal
 
 nav:
   - Home: index.md
-  - Usage: usage.md
-  - Getting Started: getting-started.md
-  - Core Concepts: 
-    - Agent Basics: agent-basics.md
-    - Node Fundamentals: node.md
+  - Guide: guide.md
+  - Core Concepts:
+    - Core Abstraction: core_abstraction.md
     - Understanding Flows: flow.md
-    - Data Structures: structure.md
-  - Features & Extensions:
-    - Basic Features:
-      - Async Processing: async.md
-      - Batch Operations: batch.md
-      - Communication Patterns: communication.md
-      - Task Decomposition: decomposition.md
-    - Advanced Capabilities:
-      - Large Language Models: llm.md
-      - MapReduce Workflows: mapreduce.md
-      - Memory & Caching: memory.md
-      - Multi-Agent Systems: multi-agent.md
-      - Parallel Execution: parallel.md
-      - RAG: rag.md
-      - Tool Integrations: tools.md
-  - Additional Resources:
-    - Sample Applications: apps.md
-    - Conceptual Paradigms: paradigm.md
-    - Visualizations: viz.md
+    - Task Decomposition: decomp.md
+  - Implementation:
+    - Setup: preparation.md
+  - Applications: apps.md
 
-markdown_extensions:
-  - pymdownx.highlight
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+plugins:
+  - search

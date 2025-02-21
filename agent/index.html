@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Agent - Pocket Flow Framework</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">Pocket Flow Framework</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../guide/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Guide</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../apps/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Applications</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../guide/">Guide</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Core Concepts</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../core_abstraction/">Core Abstraction</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../flow/">Understanding Flows</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../decomp/">Task Decomposition</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Implementation</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../preparation/">Setup</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../apps/">Applications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#example-search-agent">Example: Search Agent</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="agent">Agent</h1>
+<p>For many tasks, we need agents that take dynamic and recursive actions based on the inputs they receive.
+You can create these agents as <strong>Nodes</strong> connected by <em>Actions</em> in a directed graph using <a href="../flow/">Flow</a>.</p>
+<h3 id="example-search-agent">Example: Search Agent</h3>
+<p>This agent:
+1. Decides whether to search or answer.
+2. If it decides to search, loops back to decide if more searches are needed.
+3. Finally answers once enough context has been gathered.</p>
+<pre><code class="language-typescript">import { BaseNode, Flow, DEFAULT_ACTION } from &quot;../src/pocket&quot;;
+
+// Placeholder for an LLM call
+async function callLLM(prompt: string): Promise&lt;string&gt; {
+  // Example function to call a Large Language Model
+  // Return a YAML-like string (or any structured string) in practice
+  return `
+\`\`\`yaml
+action: &quot;search&quot;
+reason: &quot;Need more results&quot;
+search_term: &quot;Nobel Prize 2024&quot;
+\`\`\`
+`;
+}
+
+// Placeholder for a web search
+async function searchWeb(searchTerm: string): Promise&lt;string&gt; {
+  // Example function that interacts with an external API
+  return `Search Results for: ${searchTerm}`;
+}
+
+export class DecideAction extends BaseNode {
+  // The 'prep' method extracts data from sharedState to pass into execCore
+  public async prep(sharedState: any): Promise&lt;[string, string]&gt; {
+    const context = sharedState.context ?? &quot;No previous search&quot;;
+    const query = sharedState.query;
+    return [query, context];
+  }
+
+  // The main logic calls callLLM to decide whether to search again or to answer
+  public async execCore(inputs: [string, string]): Promise&lt;any&gt; {
+    const [query, context] = inputs;
+    const prompt = `
+Given input: ${query}
+Previous search results: ${context}
+Should I: 1) Search web for more info 2) Answer with current knowledge
+Output in YAML:
+\`\`\`yaml
+action: search/answer
+reason: Explanation
+search_term: search phrase if action is search
+\`\`\`
+    `;
+
+    const resp = await callLLM(prompt);
+
+    // Parse YAML from resp (this is example logic; you'd use a real YAML parser)
+    const yamlStr = resp.split(&quot;```yaml&quot;)[1]?.split(&quot;```&quot;)[0]?.trim() || &quot;&quot;;
+    // Assume the structure is { action, reason, search_term? }
+    const parsed = { action: &quot;search&quot;, reason: &quot;Need more results&quot;, search_term: &quot;Nobel Prize 2024&quot; };
+    // In a real scenario, you'd do something like:
+    // const parsed = yaml.load(yamlStr); // using js-yaml or similar
+
+    if (parsed.action === &quot;search&quot; &amp;&amp; !parsed.search_term) {
+      throw new Error(&quot;Missing search_term for 'search' action!&quot;);
+    }
+
+    return parsed;
+  }
+
+  public async post(prepResult: [string, string], execResult: any, sharedState: any): Promise&lt;string&gt; {
+    if (execResult.action === &quot;search&quot;) {
+      sharedState.search_term = execResult.search_term;
+    }
+    return execResult.action;
+  }
+}
+
+export class SearchWebNode extends BaseNode {
+  public async prep(sharedState: any): Promise&lt;string&gt; {
+    return sharedState.search_term;
+  }
+
+  public async execCore(searchTerm: string): Promise&lt;string&gt; {
+    return await searchWeb(searchTerm);
+  }
+
+  public async post(prepResult: string, execResult: string, sharedState: any): Promise&lt;string&gt; {
+    const previous = sharedState.context || [];
+    sharedState.context = [...previous, { term: prepResult, result: execResult }];
+
+    // Loop back to the DecideAction node
+    return &quot;decide&quot;;
+  }
+}
+
+export class DirectAnswer extends BaseNode {
+  public async prep(sharedState: any): Promise&lt;[string, any]&gt; {
+    return [sharedState.query, sharedState.context ?? &quot;&quot;];
+  }
+
+  public async execCore(inputs: [string, any]): Promise&lt;string&gt; {
+    const [query, context] = inputs;
+    const prompt = `Context: ${JSON.stringify(context)}\nAnswer this query: ${query}`;
+    return await callLLM(prompt);
+  }
+
+  public async post(
+    prepResult: [string, any],
+    execResult: string,
+    sharedState: any
+  ): Promise&lt;string&gt; {
+    console.log(&quot;Answer:&quot;, execResult);
+    sharedState.answer = execResult;
+    return DEFAULT_ACTION; // or any string that indicates the flow is done
+  }
+}
+
+// Connect nodes
+const decide = new DecideAction();
+const search = new SearchWebNode();
+const answer = new DirectAnswer();
+
+decide.addSuccessor(search, &quot;search&quot;);
+decide.addSuccessor(answer, &quot;answer&quot;);
+search.addSuccessor(decide, &quot;decide&quot;);  // loop back
+
+const flow = new Flow(decide);
+flow.run({ query: &quot;Who won the Nobel Prize in Physics 2024?&quot; });
+</code></pre>
+<p>In this TypeScript example:</p>
+<ul>
+<li><strong>DecideAction</strong> checks the shared state, queries an LLM, and sets the next action to either “search” or “answer.”</li>
+<li><strong>SearchWebNode</strong> performs a web search and appends the result to <code>sharedState.context</code>, then loops back to the decision node.</li>
+<li><strong>DirectAnswer</strong> produces a final answer when enough context has been gathered.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><strong>YAML Parsing:</strong> In the <code>execCore</code> method of <code>DecideAction</code>, replace the placeholder parsing logic with a proper YAML parser like <a href="https://github.com/nodeca/js-yaml"><code>js-yaml</code></a> to handle the YAML response from <code>callLLM</code>.</li>
+</ul>
+<p>```typescript
+  import yaml from 'js-yaml';</p>
+<p>// Inside execCore
+  const parsed = yaml.load(yamlStr) as { action: string; reason: string; search_term?: string };
+  ```</p>
+<ul>
+<li>
+<p><strong>LLM and Search Implementations:</strong> Ensure that the <code>callLLM</code> and <code>searchWeb</code> functions are properly implemented to interact with your chosen LLM service and web search API, respectively.</p>
+</li>
+<li>
+<p><strong>Error Handling:</strong> Enhance error handling as needed, especially around the parsing and execution steps to make your agents more robust.</p>
+</li>
+</ul>
+<p>Feel free to adjust the code to fit your actual implementations and expand upon the agent’s capabilities as required!</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>
