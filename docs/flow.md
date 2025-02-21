@@ -224,335 +224,37 @@ flowchart TD
 
 ## 3. Nested Flows
 
-A **Flow** can act like a Node, enabling powerful composition patterns. This means you can:
-
-1. Use a Flow as a Node within another Flow's transitions.
-2. Combine multiple smaller Flows into a larger Flow for reuse.
-3. Node `params` will be a merging of **all** parents' `params`.
-
-> **Note:** While **Flow** is also a **Node**, it won't run `execAsync()`.  
-> It will run `prepAsync()` and `postAsync()` before and after executing the nodes within the Flow.  
-> However, `postAsync()` always receives `undefined` for `execResult`, and should instead retrieve the Flow execution results from the shared store.
-{: .warning }
-
-### Basic Flow Nesting
-
-Here's how to connect a nested flow to another node:
+A **Flow** can act like a Node, enabling powerful composition patterns:
 
 ```typescript
-import { BaseNode, Flow, DEFAULT_ACTION } from "../src/pocket";
-
 // Define sub-flow nodes
-class NodeA extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare data for NodeA
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute NodeA logic
-  }
-
-  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise<string> {
-    return "default";
-  }
-}
-
-class NodeB extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare data for NodeB
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute NodeB logic
-  }
-
-  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise<string> {
-    return DEFAULT_ACTION;
-  }
-}
-
-class NodeC extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare data for NodeC
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute NodeC logic
-  }
-
-  public async postAsync(sharedState: any, prepResult: void, execResult: void): Promise<string> {
-    return DEFAULT_ACTION;
-  }
-}
-
-// Instantiate nodes
 const nodeA = new NodeA();
 const nodeB = new NodeB();
-const nodeC = new NodeC();
+nodeA.addSuccessor(nodeB);
 
-// Define the sub-flow: NodeA -> NodeB
+// Create sub-flow
 const subFlow = new Flow(nodeA);
-nodeA.addSuccessor(nodeB, "default");
 
-// Connect the sub-flow to NodeC
-subFlow.addSuccessor(nodeC, "default");
+// Connect sub-flow to another node
+const nodeC = new NodeC();
+subFlow.addSuccessor(nodeC);
 
-// Create the parent flow starting with the sub-flow
+// Create parent flow
 const parentFlow = new Flow(subFlow);
-
-// Initial shared state
-const sharedState = {};
-
-// Run the parent flow
-parentFlow.runAsync(sharedState).then(() => {
-  console.log("Parent flow completed successfully.");
-}).catch(error => {
-  console.error("Parent flow execution failed:", error);
-});
 ```
 
-When `parentFlow.runAsync(sharedState)` executes:
+When `parentFlow.run(sharedState)` executes:
+1. It starts the `subFlow`
+2. `subFlow` runs through its nodes (`NodeA` then `NodeB`)
+3. After `subFlow` completes, execution continues to `NodeC`
 
-1. It starts the `subFlow`.
-2. `subFlow` runs through its nodes (`NodeA` then `NodeB`).
-3. After `subFlow` completes, execution continues to `NodeC`.
+## Summary
 
-### Example: Order Processing Pipeline
+- **Flow:** Orchestrates Node execution based on Actions
+- **Action-based Transitions:** Define Node connections using `addSuccessor()`
+- **Nested Flows:** Flows can be used as Nodes within other Flows
 
-Here's a practical example that breaks down order processing into nested Flows:
-
-```typescript
-import { BaseNode, Flow, DEFAULT_ACTION } from "../src/pocket";
-
-// Payment Processing Nodes
-class ValidatePaymentNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Validate payment details
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute payment validation
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    // Transition based on validation result
-    const isValid = true; // Replace with actual validation logic
-    return isValid ? "process_payment" : "reject_payment";
-  }
-}
-
-class ProcessPaymentNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare payment processing
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute payment processing
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return "payment_confirmation";
-  }
-}
-
-class PaymentConfirmationNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare payment confirmation
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute payment confirmation
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return DEFAULT_ACTION;
-  }
-}
-
-// Inventory Management Nodes
-class CheckStockNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Check inventory stock
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute stock check
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    const isInStock = true; // Replace with actual stock check logic
-    return isInStock ? "reserve_items" : "out_of_stock";
-  }
-}
-
-class ReserveItemsNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare item reservation
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute item reservation
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return "update_inventory";
-  }
-}
-
-class UpdateInventoryNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare inventory update
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute inventory update
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return DEFAULT_ACTION;
-  }
-}
-
-// Shipping Process Nodes
-class CreateLabelNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare shipping label creation
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute label creation
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return "assign_carrier";
-  }
-}
-
-class AssignCarrierNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare carrier assignment
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute carrier assignment
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return "schedule_pickup";
-  }
-}
-
-class SchedulePickupNode extends BaseNode {
-  public async prepAsync(sharedState: any): Promise<void> {
-    // Prepare pickup scheduling
-  }
-
-  public async execAsync(_: void): Promise<void> {
-    // Execute pickup scheduling
-  }
-
-  public async postAsync(sharedState: any, _, __: void): Promise<string> {
-    return DEFAULT_ACTION;
-  }
-}
-
-// Instantiate payment processing nodes
-const validatePayment = new ValidatePaymentNode();
-const processPayment = new ProcessPaymentNode();
-const paymentConfirmation = new PaymentConfirmationNode();
-
-// Define the payment flow
-validatePayment.addSuccessor(processPayment, "process_payment");
-validatePayment.addSuccessor(new BaseNode(), "reject_payment"); // Handle payment rejection as needed
-processPayment.addSuccessor(paymentConfirmation, "payment_confirmation");
-const paymentFlow = new Flow(validatePayment);
-
-// Instantiate inventory management nodes
-const checkStock = new CheckStockNode();
-const reserveItems = new ReserveItemsNode();
-const updateInventory = new UpdateInventoryNode();
-
-// Define the inventory flow
-checkStock.addSuccessor(reserveItems, "reserve_items");
-checkStock.addSuccessor(new BaseNode(), "out_of_stock"); // Handle out-of-stock as needed
-reserveItems.addSuccessor(updateInventory, "update_inventory");
-const inventoryFlow = new Flow(checkStock);
-
-// Instantiate shipping process nodes
-const createLabel = new CreateLabelNode();
-const assignCarrier = new AssignCarrierNode();
-const schedulePickup = new SchedulePickupNode();
-
-// Define the shipping flow
-createLabel.addSuccessor(assignCarrier, "assign_carrier");
-assignCarrier.addSuccessor(schedulePickup, "schedule_pickup");
-const shippingFlow = new Flow(createLabel);
-
-// Connect the flows into the main order processing pipeline
-paymentFlow.addSuccessor(inventoryFlow, "default");
-inventoryFlow.addSuccessor(shippingFlow, "default");
-
-// Create the master flow starting with the paymentFlow
-const orderProcessingFlow = new Flow(paymentFlow);
-
-// Initial shared state
-const sharedState = {
-  orderId: "12345",
-  customer: "John Doe",
-  items: ["Item1", "Item2"],
-  paymentDetails: { /* ... */ },
-  inventory: { /* ... */ },
-  shippingDetails: { /* ... */ }
-};
-
-// Run the order processing flow
-orderProcessingFlow.runAsync(sharedState).then(() => {
-  console.log("Order processing completed successfully.");
-}).catch(error => {
-  console.error("Order processing failed:", error);
-});
-```
-
-### Flow Diagram
-
-```mermaid
-flowchart LR
-    subgraph orderProcessingFlow["Order Processing Flow"]
-        subgraph paymentFlow["Payment Flow"]
-            A[Validate Payment] -->|process_payment| B[Process Payment]
-            B -->|payment_confirmation| C[Payment Confirmation]
-            A -->|reject_payment| D[Handle Rejection]
-        end
-
-        subgraph inventoryFlow["Inventory Flow"]
-            E[Check Stock] -->|reserve_items| F[Reserve Items]
-            F -->|update_inventory| G[Update Inventory]
-            E -->|out_of_stock| H[Handle Out of Stock]
-        end
-
-        subgraph shippingFlow["Shipping Flow"]
-            I[Create Label] -->|assign_carrier| J[Assign Carrier]
-            J -->|schedule_pickup| K[Schedule Pickup]
-        end
-
-        paymentFlow --> inventoryFlow
-        inventoryFlow --> shippingFlow
-    end
-```
-
-### Running Individual Nodes vs. Running a Flow
-
-- **`node.runAsync(sharedState)`**:  
-  Just runs that node alone (calls `prepAsync()`, `execAsync()`, `postAsync()`), and returns an Action.  
-  *Use this for debugging or testing a single node.*
-
-- **`flow.runAsync(sharedState)`**:  
-  Executes from the start node, follows Actions to the next node, and so on until the flow can't continue (no next node or no next Action).  
-  *Use this in production to ensure the full pipeline runs correctly.*
-
-> **Warning:**  
-> `node.runAsync(sharedState)` **does not** proceed automatically to the successor and may use incorrect parameters.  
-> Always use `flow.runAsync(sharedState)` in production.
+Remember to handle errors appropriately and test your implementations thoroughly.
 
 ## 4. Specialized Flows
 
@@ -670,15 +372,4 @@ By converting your Python-based Flow examples to TypeScript, you can leverage Ty
 **Next Steps:**
 
 - **Implement Actual Logic:**  
-  Replace placeholder functions like `callLLM` with real implementations that interact with your services.
-
-- **Enhance Error Handling:**  
-  Incorporate comprehensive error checks and handling within your nodes to manage potential failures gracefully.
-
-- **Optimize Flow Designs:**  
-  Design and structure your Flows to suit various application needs, leveraging nested flows for complex scenarios.
-
-- **Expand Documentation:**  
-  Continue documenting other core abstractions and features of your framework to maintain consistency and clarity.
-
-Feel free to further customize these examples to fit your project's specific requirements. If you have any questions or need additional assistance, don't hesitate to ask!
+  Replace placeholder functions like `callLLM`

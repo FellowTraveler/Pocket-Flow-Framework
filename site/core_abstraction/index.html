@@ -9,18 +9,18 @@
       
       
       
-        <link rel="prev" href="../preparation/">
+        <link rel="prev" href="../guide/">
       
       
-        <link rel="next" href="../agent/">
+        <link rel="next" href="../flow/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
-        <title>Key Abstractions - Pocket Docs</title>
+        <title>Core Abstraction - Pocket Docs</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#core-abstractions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Key Abstractions
+              Core Abstraction
             
           </span>
         </div>
@@ -207,7 +212,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../agent/" class="md-tabs__link">
+        <a href="../flow/" class="md-tabs__link">
           
   
   Core Concepts
@@ -225,7 +230,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../async/" class="md-tabs__link">
+        <a href="../llm/" class="md-tabs__link">
           
   
   Features & Extensions
@@ -380,28 +385,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../preparation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Setup Steps
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -411,6 +394,20 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Key Abstractions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -422,6 +419,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Flows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-batchflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. BatchFlows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-simple-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Simple Flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -485,50 +537,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Agent Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../node/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Node Fundamentals
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../flow/" class="md-nav__link">
         
   
@@ -551,11 +559,77 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../batch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Data Structures
+    Batch Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Async Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Communication Patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decomp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Task Decomposition
     
   </span>
   
@@ -615,94 +689,6 @@
             Features & Extensions
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../async/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Async Processing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../batch/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Batch Operations
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../communication/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Communication Patterns
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../decomp/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Task Decomposition
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -998,6 +984,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Flows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-batchflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. BatchFlows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-simple-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Simple Flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1013,20 +1045,57 @@
 
 
 
-  <h1>Key Abstractions</h1>
+<h1 id="core-abstractions">Core Abstractions<a class="headerlink" href="#core-abstractions" title="Permanent link">&para;</a></h1>
+<p>The Pocket Flow Framework is built around three core abstractions: <strong>Nodes</strong>, <strong>Flows</strong>, and <strong>BatchFlows</strong>. These abstractions allow you to define modular, reusable, and scalable workflows.</p>
+<h2 id="1-nodes">1. Nodes<a class="headerlink" href="#1-nodes" title="Permanent link">&para;</a></h2>
+<p>A <strong>Node</strong> is the fundamental building block of a workflow. It represents a single unit of work and is implemented by extending the <a href="cci:2://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:4:0-78:1">BaseNode</a> class. Nodes have three primary methods:</p>
+<ul>
+<li><strong><a href="cci:1://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:155:4-158:5">prep(sharedState)</a></strong>: Prepares the node for execution by initializing any necessary state or resources.</li>
+<li><strong><a href="cci:1://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:122:4-124:5">execCore(prepResult)</a></strong>: Executes the core logic of the node.</li>
+<li><strong><a href="cci:1://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:65:4-65:86">post(prepResult, execResult, sharedState)</a></strong>: Determines the next action to take based on the execution result.</li>
+</ul>
+<p>Nodes can be chained together using <strong>successors</strong>, which define transitions based on the <a href="cci:1://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:65:4-65:86">post</a> method's return value.</p>
+<h2 id="2-flows">2. Flows<a class="headerlink" href="#2-flows" title="Permanent link">&para;</a></h2>
+<p>A <strong>Flow</strong> orchestrates the execution of a sequence of nodes. It starts with a single entry point (the <code>start</code> node) and follows transitions defined by the <a href="cci:1://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:65:4-65:86">post</a> method of each node. The <a href="cci:2://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:103:0-152:1">Flow</a> class extends <a href="cci:2://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:4:0-78:1">BaseNode</a> and provides methods for orchestrating the execution of nodes.</p>
+<h2 id="3-batchflows">3. BatchFlows<a class="headerlink" href="#3-batchflows" title="Permanent link">&para;</a></h2>
+<p>A <strong>BatchFlow</strong> extends the <a href="cci:2://file:///Users/helenazhang/Pocket-Flow-Framework/src/pocket.ts:103:0-152:1">Flow</a> class to handle workflows that process multiple items in parallel. It prepares a list of items, orchestrates their execution, and aggregates the results.</p>
+<h2 id="example-simple-flow">Example: Simple Flow<a class="headerlink" href="#example-simple-flow" title="Permanent link">&para;</a></h2>
+<p>Here’s an example of creating a simple flow with two nodes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BaseNode</span><span class="p">,</span><span class="w"> </span><span class="nx">Flow</span><span class="p">,</span><span class="w"> </span><span class="nx">DEFAULT_ACTION</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../src/pocket&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">class</span><span class="w"> </span><span class="nx">NodeA</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">BaseNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">prep</span><span class="p">(</span><span class="nx">sharedState</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">execCore</span><span class="p">(</span><span class="nx">prepResult</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">post</span><span class="p">(</span><span class="nx">prepResult</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">execResult</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">sharedState</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kd">class</span><span class="w"> </span><span class="nx">NodeB</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">BaseNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">prep</span><span class="p">(</span><span class="nx">sharedState</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">execCore</span><span class="p">(</span><span class="nx">prepResult</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">post</span><span class="p">(</span><span class="nx">prepResult</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">execResult</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">sharedState</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">DEFAULT_ACTION</span><span class="p">;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nodeA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NodeA</span><span class="p">();</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nodeB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NodeB</span><span class="p">();</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nx">nodeA</span><span class="p">.</span><span class="nx">addSuccessor</span><span class="p">(</span><span class="nx">nodeB</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="kd">const</span><span class="w"> </span><span class="nx">flow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Flow</span><span class="p">(</span><span class="nx">nodeA</span><span class="p">);</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nx">flow</span><span class="p">.</span><span class="nx">run</span><span class="p">({});</span>
+</code></pre></div>
+<p>This flow starts with <code>NodeA</code> and transitions to <code>NodeB</code> when <code>NodeA.post()</code> returns <code>"default"</code>.</p>
 
-<hr />
-<p>layout: default
-title: "Core Abstraction"
-nav_order: 2
-has_children: true</p>
-<hr />
 
 
 
 
 
 
+  
+  
 
 
 
