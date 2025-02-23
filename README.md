@@ -5,7 +5,7 @@
 > Build enterprise-ready AI systems—fast, modular, and vendor-agnostic.
 
 <p align="center">
-  <img src="./assets/flow.png" width="700"/>
+  <img src="./assets/arc.png" width="700"/>
 </p>
 
 ## Why Pocket Flow?
@@ -32,4 +32,4 @@ From there, it's easy to layer on more complex features like [Multi-Agents](http
    git clone https://github.com/helenaeverleyz/pocket.git
    cd pocket
 
-2. Check out documentation: https://helenaeverleyz.github.io/pocket/
+2. Check out documentation: https://the-pocket-world.github.io/Pocket-Flow-Framework/
