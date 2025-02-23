@@ -15,7 +15,7 @@ Enterprises need automation. The [typescript LLM framework](pocket/src/pocket.ts
   <img src="./assets/abstraction.png" width="700"/>
 </p>
 
-From there, it's easy to layer on more complex features like [Multi-Agents](https://helenaeverleyz.github.io/pocket/multi_agent/), [Agents](https://helenaeverleyz.github.io/pocket/agent/), [Prompt Chaining](https://the-pocket.github.io/PocketFlow/decomp.html), [RAG](https://helenaeverleyz.github.io/pocket/rag/), etc.
+From there, it's easy to layer on more complex features like [Multi-Agents](https://the-pocket-world.github.io/Pocket-Flow-Framework/multi_agent/), [Prompt Chaining](https://the-pocket-world.github.io/Pocket-Flow-Framework/decomp/), [RAG](https://the-pocket-world.github.io/Pocket-Flow-Framework/rag/), etc.
 
 <p align="center">
   <img src="./assets/paradigm.png" width="700"/>
