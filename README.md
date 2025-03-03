@@ -9,7 +9,7 @@
 </p>
 
 ## Why Pocket Flow?
-Enterprises need automation. The [typescript LLM framework](src/pocket.ts) capture what we see as the core abstraction of most LLM frameworks: A **Nested Directed Graph** that breaks down tasks into multiple (LLM) steps, with branching and recursion for agent-like decision-making.
+Enterprises need automation. The [typescript LLM framework](src/pocket.ts) is a tool within https://pocketflow.ai/ and it captures what we see as the core abstraction of most LLM frameworks: A **Nested Directed Graph** that breaks down tasks into multiple (LLM) steps, with branching and recursion for agent-like decision-making.
 
 <p align="center">
   <img src="./assets/abstraction.png" width="700"/>
