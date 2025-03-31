@@ -1,9 +1,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docs](https://img.shields.io/badge/docs-latest-blue)](https://the-pocket-world.github.io/Pocket-Flow-Framework/)
 
-# 🚀 Pocket Flow Framework
+# 🚀 Pocketflow Framework
 
-**A Core Component of the [PocketFlow Platform](https://pocketflow.ai/)**
+**A Core Component of the [Pocketflow Platform](https://pocketflow.ai/)**
 
 > Build enterprise-ready AI systems—fast, modular, and vendor-agnostic.
 
@@ -13,13 +13,13 @@
 
 ## Overview
 
-The Pocket Flow Framework is one of the foundational abstractions behind **[PocketFlow](https://pocketflow.ai/)**, a platform designed to empower users to build custom AI workflows using natural language prompts. 
+The Pocketflow Framework is one of the foundational abstractions behind **[Pocketflow](https://pocketflow.ai/)**, a platform designed to empower users to build custom AI workflows using natural language prompts. 
 
 We began building this original framework internally in November. Recognizing its potential, we open-sourced the Python version in December and the TypeScript version in February to share our approach with the broader community.
 
-## Why Pocket Flow Framework?
+## Why Pocketflow Framework?
 
-At the heart of complex AI systems and enterprise automation lies the need for structured, manageable workflows. The Pocket Flow Framework implements what we see as the core abstraction for most LLM applications: A **Nested Directed Graph**.
+At the heart of complex AI systems and enterprise automation lies the need for structured, manageable workflows. The Pocketflow Framework implements what we see as the core abstraction for most LLM applications: A **Nested Directed Graph**.
 
 <p align="center">
   <img src="./assets/abstraction.png" width="700"/>
