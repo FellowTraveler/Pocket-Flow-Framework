@@ -15,7 +15,7 @@
 
 The Pocket Flow Framework is one of the foundational abstractions behind **[PocketFlow](https://pocketflow.ai/)**, a platform designed to empower users to build custom AI workflows using natural language prompts. 
 
-We began building this original framework internally in November. Recognizing its potential, we open-sourced the Python version in December (thank you **Zachary62** your contribution) and the TypeScript version in February to share our approach with the broader community.
+We began building this original framework internally in November. Recognizing its potential, we open-sourced the Python version in December and the TypeScript version in February to share our approach with the broader community.
 
 ## Why Pocket Flow Framework?
 
