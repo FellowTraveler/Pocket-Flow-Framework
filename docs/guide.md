@@ -1,10 +1,15 @@
 ---
 layout: default
-title: "Guide"
+title: "Quick Start Guide"
 nav_order: 2
 ---
 
-# Pocket Flow Framework Guide
+# Pocket Flow Framework Quick Start Guide
+
+{: .note }
+> **Note:** This documentation currently focuses on the **TypeScript** implementation of the Pocket Flow Framework.
+
+This guide provides a rapid introduction to the core concepts and usage patterns of the framework.
 
 {: .important }
 > The Pocket Flow Framework helps you build modular, flow-based applications by composing nodes into directed graphs.
@@ -12,104 +17,160 @@ nav_order: 2
 ## Core Concepts
 
 ### BaseNode
-Every node in a flow extends the `BaseNode` class and implements three key lifecycle methods:
+Every functional unit in a flow inherits from the abstract `BaseNode` class. Each node must implement three key lifecycle methods and a `_clone` method:
 
 ```typescript
 abstract class BaseNode {
-  // Prepare data or transform shared state
+  // Prepare input data or transform shared state before core execution
   abstract prep(sharedState: any): Promise<any>;
   
-  // Core execution logic
+  // Contains the main logic of the node
   abstract execCore(prepResult: any): Promise<any>;
   
-  // Process results and determine next action
+  // Processes results, updates shared state, and determines the next step (action)
   abstract post(prepResult: any, execResult: any, sharedState: any): Promise<string>;
+
+  // Creates a new instance of the node (required for flow execution)
+  abstract _clone(): BaseNode;
 }
 ```
 
-### Flow Construction
-Nodes are connected using `addSuccessor(node, action)` with "default" as the default action. Here's a complete example:
+The `_clone()` method is essential for the framework to manage node instances and state correctly during potentially complex or parallel executions.
+
+### Flow Construction & Execution
+Nodes are linked together to form a workflow using `addSuccessor(node, action)`. The `action` is a string label for the connection. The `post()` method of a node returns an action string, determining which successor node will execute next. `DEFAULT_ACTION` is provided as a standard action name.
+
+Here’s a complete example:
 
 ```typescript
-import { BaseNode, Flow, DEFAULT_ACTION } from "pocket";
+import { BaseNode, Flow, DEFAULT_ACTION } from "pocket"; // Assuming 'pocket' is the package name
 
 class MyNode extends BaseNode {
   async prep(sharedState: any): Promise<any> {
-    return { /* prep data */ };
+    console.log("MyNode Prep:", sharedState);
+    // Example: Prepare data based on shared state
+    return { nodeInput: sharedState.initialData }; 
   }
   
   async execCore(prepResult: any): Promise<any> {
-    return { /* execution result */ };
+    console.log("MyNode ExecCore:", prepResult);
+    // Example: Perform the core task
+    return { resultData: `Processed: ${prepResult.nodeInput}` };
   }
   
   async post(prepResult: any, execResult: any, sharedState: any): Promise<string> {
-    return DEFAULT_ACTION;
+    console.log("MyNode Post:", execResult);
+    // Example: Update shared state
+    sharedState.lastResult = execResult.resultData;
+    // Determine the next action
+    return DEFAULT_ACTION; // Proceed to the default successor
   }
 
+  // Required for the flow to function correctly
   _clone(): BaseNode {
     return new MyNode();
   }
 }
 
-// Connect nodes
+// --- Flow Setup ---
+
+// Create node instances
 const nodeA = new MyNode();
-const nodeB = new MyNode();
+const nodeB = new MyNode(); // Another node instance
+
+// Connect nodeA's default action to nodeB
 nodeA.addSuccessor(nodeB, DEFAULT_ACTION);
 
-// Create and run flow
+// Create the flow starting with nodeA
 const flow = new Flow(nodeA);
-await flow.run({ /* initial shared state */ });
+
+// Define initial shared state
+const initialState = { initialData: "Hello PocketFlow!" };
+
+// Run the flow
+console.log("Starting flow...");
+const finalState = await flow.run(initialState);
+console.log("Flow finished. Final State:", finalState);
 ```
 
-## Advanced Features
+## Advanced Features Overview
+
+The framework includes specialized nodes and flows for common patterns:
 
 ### RetryNode
-Built-in retry mechanism for handling failures:
+Automatically retries execution upon failure. Extend `RetryNode` and implement the standard `prep`, `execCore`, `post`, and `_clone` methods.
 
 ```typescript
+import { RetryNode } from "pocket";
+
 class MyRetryNode extends RetryNode {
-  constructor() {
-    super(3, 1000); // 3 retries, 1 second interval
+  constructor(maxRetries: number = 3, retryIntervalMs: number = 1000) {
+    super(maxRetries, retryIntervalMs);
   }
-  // Implement abstract methods...
+
+  async prep(sharedState: any): Promise<any> { /* ... */ return {}; }
+  async execCore(prepResult: any): Promise<any> { 
+    // Example: Simulate potential failure
+    if (Math.random() < 0.5) { throw new Error("Simulated failure"); }
+    return { success: true }; 
+  }
+  async post(prepResult: any, execResult: any, sharedState: any): Promise<string> { /* ... */ return DEFAULT_ACTION; }
+  _clone(): BaseNode { return new MyRetryNode(); }
 }
 ```
 
 ### BatchFlow
-Process multiple items in parallel by overriding `prep()` to return an array of items:
+Processes an array of items efficiently. Override `prep()` to return the array. The framework then typically calls `execCore()` for each item (behavior might vary based on specific `BatchFlow` implementation).
 
 ```typescript
-class MyBatchFlow extends BatchFlow {
+import { BatchFlow } from "pocket"; // Assuming a base BatchFlow exists
+
+class MyBatchFlow extends BatchFlow { // Extend the appropriate BatchFlow base
   async prep(sharedState: any): Promise<any[]> {
-    return [/* array of items to process */];
+    // Example: Return an array of items from shared state
+    return sharedState.itemsToProcess || []; 
   }
+
+  // execCore would typically process a single item from the batch
+  async execCore(singleItem: any): Promise<any> {
+    console.log("Processing item:", singleItem);
+    return { processedItem: singleItem * 2 }; // Example processing
+  }
+
+  // post might aggregate results or update state after batch completion
+  async post(prepResult: any, execResult: any, sharedState: any): Promise<string> {
+      // execResult might be an array of results from execCore calls
+      sharedState.batchResults = execResult; 
+      return DEFAULT_ACTION;
+  }
+
+  _clone(): BaseNode { return new MyBatchFlow(); } // Adjust as needed
 }
 ```
+*Note: The exact implementation details of `BatchFlow` might vary. Consult the specific class documentation.* 
 
 ### Shared State
-- Passed through entire flow
-- Modified by nodes as needed
-- Persists between node executions
+- A JavaScript object passed sequentially through the nodes in a flow.
+- Nodes can read from and write to the shared state during their `prep` and `post` phases.
+- Allows data persistence and communication between nodes.
 
 ## Best Practices
 
 ### Node Design
-- Keep nodes focused on single responsibility
-- Use `prep()` for data preparation
-- Put core logic in `execCore()`
-- Use `post()` for state updates and flow control
+- **Single Responsibility**: Keep nodes focused on one logical task.
+- **Lifecycle Methods**: Use `prep()` for input/state preparation, `execCore()` for the main work, and `post()` for result processing, state updates, and determining the next action.
 
 ### Flow Management
-- Implement `_clone()` for each node
-- Use meaningful action names
-- Handle errors appropriately
+- **Implement `_clone()`**: Ensure every node class correctly implements the `_clone()` method.
+- **Meaningful Actions**: Use descriptive action strings (beyond just `DEFAULT_ACTION`) for clarity when implementing branching logic in `post()`.
+- **Error Handling**: Implement error handling within nodes or use constructs like `RetryNode`.
 
 ### State Management
-- Keep shared state minimal
-- Use TypeScript interfaces for type safety
-- Document state structure
+- **Keep it Minimal**: Avoid putting excessive or unnecessary data into the shared state.
+- **Type Safety**: Use TypeScript interfaces to define the structure of your shared state for better maintainability.
+- **Documentation**: Clearly document the expected structure and purpose of data within the shared state.
 
 ### Testing
-- Test individual nodes using `node.run()`
-- Test flows using `flow.run()`
-- Verify state transformations
+- **Unit Test Nodes**: Test individual nodes in isolation by calling their lifecycle methods directly or using `node.run()` if applicable.
+- **Integration Test Flows**: Test complete flows using `flow.run()` to verify node interactions and final state.
+- **Verify State**: Assert that the shared state is correctly modified throughout the flow execution.

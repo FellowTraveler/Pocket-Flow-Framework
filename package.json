@@ -11,6 +11,8 @@
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
+    "@types/lodash": "^4.17.16",
+    "lodash": "^4.17.21",
     "typescript": "^5.0.0"
   },
   "devDependencies": {

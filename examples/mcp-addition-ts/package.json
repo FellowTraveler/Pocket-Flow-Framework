@@ -1,0 +1,26 @@
+{
+  "name": "mcp-addition-ts-example",
+  "version": "1.0.0",
+  "description": "Pocket Flow Framework MCP Integration Example (TypeScript)",
+  "main": "dist/run.js",
+  "scripts": {
+    "build": "tsc",
+    "start:server": "ts-node src/server.ts",
+    "start": "npm run build && node dist/run.js",
+    "dev:server": "ts-node src/server.ts",
+    "dev:run": "ts-node src/run.ts"
+  },
+  "author": "PocketFlow Team",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "pocket": "file:../../dist"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.17", 
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

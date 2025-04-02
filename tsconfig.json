@@ -9,9 +9,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "rootDir": "./src",
-    "moduleResolution": "node"
+    "rootDir": ".",
+    "moduleResolution": "node",
+    "declaration": true
   },
   "include": ["src/**/*", "tests/pocket.test.ts"],
   "exclude": ["node_modules"]
-} 
+}

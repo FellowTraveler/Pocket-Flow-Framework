@@ -1,30 +1,33 @@
 ---
 layout: default
-title: "Home"
+title: "Pocket Flow Framework"
 nav_order: 1
 ---
 
-# Pocket Flow
+# Pocket Flow Framework
 
-A TypeScript framework for building **LLM-powered applications** with:
-- 🤖 Intelligent Agents
-- 🧩 Task Decomposition
-- 📚 Retrieval Augmented Generation (RAG)
-- And more...
+The core framework powering **[PocketFlow](https://pocketflow.ai/)**, designed for building robust, modular, and vendor-agnostic LLM-powered applications. It provides the foundational abstractions for creating sophisticated workflows involving:
 
-## Architecture
+- Intelligent Agents
+- Task Decomposition
+- Retrieval Augmented Generation (RAG)
+- Multi-step processing and complex logic
 
-We model LLM workflows as a **Nested Directed Graph** where:
+## Core Architecture: The Nested Directed Graph
 
-- 🔹 **Nodes** handle atomic LLM tasks
-- 🔗 **Actions** connect nodes (labeled edges) for agent behavior
-- 🔄 **Flows** orchestrate node graphs for task decomposition
-- 📦 **Nesting** allows flows to be used as nodes
-- 📊 **Batch** processing for data-intensive tasks
-- ⚡ **Async** support for parallel execution
+We model LLM workflows using a **Nested Directed Graph** abstraction. This approach provides modularity and reusability, breaking complex problems into manageable, interconnected components.
+
+Key elements include:
+
+- 🔹 **Nodes**: Handle atomic LLM tasks or operations.
+- 🔗 **Actions**: Connect nodes (labeled edges), enabling agent-like behaviors and conditional logic.
+- 🔄 **Flows**: Orchestrate graphs of nodes, managing task decomposition and execution sequences.
+- 📦 **Nesting**: Allows entire flows to be encapsulated and reused as nodes within other flows.
+- 📊 **Batch Processing**: Facilitates efficient handling of data-intensive tasks.
+- ⚡ **Async Support**: Enables parallel execution for improved performance.
 
 <div align="center">
-  <img src="https://github.com/the-pocket/PocketFlow/raw/main/assets/minillmflow.jpg?raw=true" width="400"/>
+  <img src="../assets/abstraction.png" width="700"/>
 </div>
 
 ---
@@ -59,7 +62,7 @@ We model LLM workflows as a **Nested Directed Graph** where:
 - [Retrieval Augmented Generation](./rag.md)
 - [Tool Integrations](./tool.md)
 
-## Additional Resources
+## Examples & Concepts
 
 - [Sample Applications](./apps.md)
 - [Conceptual Paradigms](./paradigm.md)
@@ -70,4 +73,3 @@ We model LLM workflows as a **Nested Directed Graph** where:
 <div align="center">
   <p><i>Built with TypeScript for production-grade LLM applications</i></p>
 </div>
-
