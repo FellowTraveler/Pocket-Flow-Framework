@@ -21,7 +21,7 @@ We started development in November. The Python version was open‑sourced in Dec
 ## Architecture Diagram
 
 <p align="center">
-  <img src="./assets/arc-1.png" alt="Shared state and node flow diagram" width="700"/>
+  <img src="./assets/arc.png" alt="Shared state and node flow diagram" width="700"/>
 </p>
 
 ## Why This Framework?
