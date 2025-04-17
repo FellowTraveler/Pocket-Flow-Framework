@@ -1,55 +1,42 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 [![Docs](https://img.shields.io/badge/docs-latest-blue)](https://the-pocket-world.github.io/Pocket-Flow-Framework/)
 
 # 🚀 Pocketflow Framework
 
-**A Core Component of the [Pocketflow Platform](https://pocketflow.ai/)**
-
-> Build enterprise-ready AI systems—fast, modular, and vendor-agnostic.
-
-<p align="center">
-  <img src="./assets/arc.png" width="700"/>
-</p>
+**The original core abstraction behind the [Pocketflow Platform](https://pocketflow.ai/)**  
+Enabling non‑developers to create custom AI workflows with natural language.
 
 ## Overview
 
-The Pocketflow Framework is one of the foundational abstractions behind **[Pocketflow](https://pocketflow.ai/)**, a platform designed to empower users to build custom AI workflows using natural language prompts. 
+This repo contains the **original Pocketflow Framework**—the Nested Directed Graph engine that underpins one‑shot workflow generation on Pocketflow. Workflows on the platform wrap around this framework, providing a consistent execution model and state management layer.
 
-We began building this original framework internally in November. Recognizing its potential, we open-sourced the Python version in December and the TypeScript version in February to share our approach with the broader community.
+We started development in November. The Python version was open‑sourced in December with Zach—who later spun it off as his own project. The TypeScript release followed in February.
 
-## Why Pocketflow Framework?
-
-At the heart of complex AI systems and enterprise automation lies the need for structured, manageable workflows. The Pocketflow Framework implements what we see as the core abstraction for most LLM applications: A **Nested Directed Graph**.
+## Platform Snapshot
 
 <p align="center">
-  <img src="./assets/abstraction.png" width="700"/>
+  <img src="./assets/landing.png" alt="Pocketflow workflow UI" width="700"/>
 </p>
 
-This graph-based approach allows breaking down complex tasks into smaller, reusable steps (nodes), incorporating branching and recursion for agent-like decision-making. This foundation makes it straightforward to layer on advanced capabilities required by modern AI systems.
+## Architecture Diagram
 
 <p align="center">
-  <img src="./assets/paradigm.png" width="700"/>
+  <img src="./assets/arc-1.png" alt="Shared state and node flow diagram" width="700"/>
 </p>
 
-Examples of features easily built upon this framework include:
-- [Multi-Agent Systems](https://the-pocket-world.github.io/Pocket-Flow-Framework/multi_agent/)
-- [Prompt Chaining & Decomposition](https://the-pocket-world.github.io/Pocket-Flow-Framework/decomp/)
-- [Retrieval-Augmented Generation (RAG)](https://the-pocket-world.github.io/Pocket-Flow-Framework/rag/)
+## Why This Framework?
+
+- **Nested Directed Graph**: Breaks complex tasks into reusable nodes with branching and recursion.  
+- **One‑Shot Assembly**: Core abstraction powering prompt‑based workflow creation.  
 
 ## ✨ Key Features
 
-- 🔄 **Nested Directed Graph Structure**: Enables modularity and reusability, where each node represents a distinct processing unit.
-- 🔓 **Vendor Agnostic**: Designed for flexibility, allowing integration with any LLM or external API without requiring specialized wrappers.
-- 🔍 **Enhanced Debuggability**: Provides tools for visualizing workflows and managing state persistence, simplifying development and troubleshooting.
+- **Modular Nodes**: Each node is an independent processing unit.  
+- **Vendor‑Agnostic**: Integrate any LLM or API without extra wrappers.  
+- **Debug-Friendly**: Inspect state and trace execution paths easily.  
 
 ## 📚 Get Started
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/The-Pocket-World/Pocket-Flow-Framework.git # Or your specific repo URL if different
-    cd Pocket-Flow-Framework
-    ```
-2.  **Explore the Documentation:**
-    Dive deeper into the concepts, architecture, and examples: [Official Documentation](https://the-pocket-world.github.io/Pocket-Flow-Framework/)
-
-*(Note: We are actively working on adding more examples to showcase the framework's capabilities.)*
+```bash
+git clone https://github.com/The-Pocket-World/Pocket-Flow-Framework.git
+cd Pocket-Flow-Framework
